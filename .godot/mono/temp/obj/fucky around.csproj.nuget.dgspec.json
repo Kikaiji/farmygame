@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Godot\\fucky around.csproj": {}
+    "F:\\Godot\\fuckyaround\\fucky around.csproj": {}
   },
   "projects": {
-    "F:\\Godot\\fucky around.csproj": {
+    "F:\\Godot\\fuckyaround\\fucky around.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Godot\\fucky around.csproj",
+        "projectUniqueName": "F:\\Godot\\fuckyaround\\fucky around.csproj",
         "projectName": "fucky around",
-        "projectPath": "F:\\Godot\\fucky around.csproj",
+        "projectPath": "F:\\Godot\\fuckyaround\\fucky around.csproj",
         "packagesPath": "C:\\Users\\Oliver\\.nuget\\packages\\",
-        "outputPath": "F:\\Godot\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "F:\\Godot\\fuckyaround\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Oliver\\AppData\\Roaming\\NuGet\\NuGet.Config",
