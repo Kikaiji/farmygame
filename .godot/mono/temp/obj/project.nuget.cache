@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5RNskFaXyf8T83DfOKE/jp4TwYld3k2OnfoRFGtNh2IVNW0aRVwGuY57mmiMXb9xGhqXZTMGy838PUN5MMrphg==",
+  "success": true,
+  "projectFilePath": "F:\\Godot\\fucky around.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Oliver\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "C:\\Users\\Oliver\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\Oliver\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

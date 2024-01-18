@@ -1,0 +1,17 @@
+F:\Godot\.godot\mono\temp\bin\Debug\fucky around.deps.json
+F:\Godot\.godot\mono\temp\bin\Debug\fucky around.runtimeconfig.json
+F:\Godot\.godot\mono\temp\bin\Debug\fucky around.dll
+F:\Godot\.godot\mono\temp\bin\Debug\fucky around.pdb
+F:\Godot\.godot\mono\temp\bin\Debug\GodotSharp.dll
+F:\Godot\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.csproj.AssemblyReference.cache
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.GeneratedMSBuildEditorConfig.editorconfig
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.AssemblyInfoInputs.cache
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.AssemblyInfo.cs
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.csproj.CoreCompileInputs.cache
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.csproj.CopyComplete
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.dll
+F:\Godot\.godot\mono\temp\obj\Debug\ref\fucky around.dll
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.pdb
+F:\Godot\.godot\mono\temp\obj\Debug\fucky around.genruntimeconfig.cache
+F:\Godot\.godot\mono\temp\obj\Debug\refint\fucky around.dll

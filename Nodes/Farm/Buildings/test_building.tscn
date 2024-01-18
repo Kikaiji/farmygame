@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://by62iminhwy6q"]
+
+[ext_resource type="Script" path="res://Scripts/Farm/Building.cs" id="1_mjo61"]
+[ext_resource type="Script" path="res://Scripts/Input/BuildingInput.cs" id="2_4iyl3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56p11"]
+albedo_color = Color(0.301961, 0.117647, 0.0431373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7o7ln"]
+material = SubResource("StandardMaterial3D_56p11")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kw7e8"]
+
+[node name="TestBuilding" type="MeshInstance3D"]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0.17744, -0.351583, 4.81077)
+mesh = SubResource("BoxMesh_7o7ln")
+script = ExtResource("1_mjo61")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("2_4iyl3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00514412, 3.57628e-07, -0.0106168)
+shape = SubResource("BoxShape3D_kw7e8")

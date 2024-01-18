@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://doohlunve32yt"]
+
+[ext_resource type="Texture2D" uid="uid://bs6resw4anmve" path="res://Art/Sprites/Plants/turnip test.png" id="1_4jbwf"]
+
+[resource]
+texture = ExtResource("1_4jbwf")

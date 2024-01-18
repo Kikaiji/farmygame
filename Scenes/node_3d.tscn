@@ -1,0 +1,205 @@
+[gd_scene load_steps=17 format=3 uid="uid://dc0u78xh0qrjl"]
+
+[ext_resource type="PackedScene" uid="uid://cw8ai5pl88u4f" path="res://Nodes/Player/player.tscn" id="1_2d40q"]
+[ext_resource type="Script" path="res://Scripts/Farm/Bed.cs" id="1_5752q"]
+[ext_resource type="PackedScene" uid="uid://ccjd466lt1ohe" path="res://Nodes/Player/camera.tscn" id="2_4ymwj"]
+[ext_resource type="Script" path="res://Scripts/Data/DataManager.cs" id="4_0t0j3"]
+[ext_resource type="Script" path="res://Scripts/Farm/BuildingGrid.cs" id="6_aulel"]
+[ext_resource type="PackedScene" uid="uid://deknadnfffy5b" path="res://Nodes/Farm/new_test_plot.tscn" id="8_0e0lk"]
+[ext_resource type="Script" path="res://Scripts/Input/ButtonControls.cs" id="9_4fuk2"]
+[ext_resource type="PackedScene" uid="uid://2qgxy3ocw7rt" path="res://Nodes/UI/player_inventory.tscn" id="9_ilafq"]
+[ext_resource type="Script" path="res://Scripts/UI/DayCounter.cs" id="11_cpodb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yus8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n433u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ysiw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r250p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp805"]
+albedo_color = Color(1, 0.45098, 0.458824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6u5xp"]
+material = SubResource("StandardMaterial3D_yp805")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmlw0"]
+size = Vector3(1.46894, 2.16483, 1.60671)
+
+[node name="Scene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.493837, 2.98695, 0)
+
+[node name="Environment" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644913, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(150, 0, 0, 0, 2, 0, 0, 0, 150, 0, -5.21984, 0)
+mesh = SubResource("BoxMesh_2yus8")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48117e-05, -0.133374, 0.000920214)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_n433u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(4.04501, 0, 0, 0, 1, 0, 0, 0, 3.95556, 0, -0.743865, -3.49368)
+mesh = SubResource("BoxMesh_4ysiw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240339, -0.266749, 0.0348957)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_r250p")
+
+[node name="Bed" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(6.28859, 0, 0, 0, 2.31147, 0, 0, 0, 3.95556, 12.0306, -3.59558, 12.8708)
+mesh = SubResource("BoxMesh_6u5xp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240339, -0.266749, 0.0348957)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bed/StaticBody3D"]
+shape = SubResource("BoxShape3D_r250p")
+
+[node name="BedArea" type="Area3D" parent="Environment/Bed"]
+collision_mask = 3
+input_ray_pickable = false
+script = ExtResource("1_5752q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bed/BedArea"]
+shape = SubResource("BoxShape3D_rmlw0")
+
+[node name="Character" parent="." node_paths=PackedStringArray("cameraPivot") instance=ExtResource("1_2d40q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354149, 1.92652, -3.76402)
+collision_layer = 2
+speed = 600
+cameraPivot = NodePath("../CameraPivot")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.422239, 0.906485, 0, -0.906485, 0.422239, 0, 3.87045, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.999977, 0.00436596, -0.00525422, -0.00432978, 0.999967, 0.00687869, 0.00528407, -0.00685578, 0.999963, 0, 0, 0)
+script = ExtResource("4_0t0j3")
+
+[node name="CameraPivot" parent="." node_paths=PackedStringArray("focus") instance=ExtResource("2_4ymwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0171318, 1.90735e-06, -0.106271)
+focus = NodePath("../Character")
+
+[node name="BuildingGrid" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -3.46194, -70)
+script = ExtResource("6_aulel")
+PlotNode = ExtResource("8_0e0lk")
+gridSizeX = 70
+gridSizeY = 70
+
+[node name="Tiles" type="Node3D" parent="BuildingGrid"]
+
+[node name="Buildings" type="Node3D" parent="BuildingGrid"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_4fuk2")
+
+[node name="Build Buttons" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BuildButton" type="Button" parent="Control/Build Buttons"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DestroyButton" type="Button" parent="Control/Build Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 136.0
+offset_right = 64.0
+offset_bottom = 264.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="StopButton" type="Button" parent="Control/Build Buttons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 272.0
+offset_right = 64.0
+offset_bottom = 400.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Building Select" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TestBuilding" type="Button" parent="Control/Building Select"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_right = -132.0
+offset_bottom = 64.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="FarmPlot" type="Button" parent="Control/Building Select"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_top = 68.0
+offset_right = -132.0
+offset_bottom = 132.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchor_right = 0.1
+anchor_bottom = 0.1
+
+[node name="Label" type="Label" parent="Control/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+script = ExtResource("11_cpodb")
+
+[node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
+mouse_filter = 1
+
+[connection signal="body_entered" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyEnter"]
+[connection signal="body_exited" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyExit"]
+[connection signal="button_down" from="Control/Build Buttons/BuildButton" to="Control" method="BuildButton"]
+[connection signal="button_down" from="Control/Build Buttons/DestroyButton" to="Control" method="DestroyButton"]
+[connection signal="button_down" from="Control/Build Buttons/StopButton" to="Control" method="StopBuildButton"]
+[connection signal="button_down" from="Control/Building Select/TestBuilding" to="Control" method="SelectBuilding" binds= [0]]
+[connection signal="button_down" from="Control/Building Select/FarmPlot" to="Control" method="SelectBuilding" binds= [1]]

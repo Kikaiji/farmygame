@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw8ai5pl88u4f"]
+
+[ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.cs" id="1_6ctxh"]
+[ext_resource type="Script" path="res://Scripts/Player/InteractPrompt.cs" id="2_32q4g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e0b3q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vmeib"]
+
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("prompt")]
+script = ExtResource("1_6ctxh")
+speed = 100
+prompt = NodePath("Label3D")
+metadata/node = NodePath(".")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_e0b3q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_vmeib")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+billboard = 1
+text = "yahooo
+"
+font_size = 100
+script = ExtResource("2_32q4g")
