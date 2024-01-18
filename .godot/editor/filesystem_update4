@@ -1,4 +1,3 @@
-res://Scripts/Player/PlayerInventory.cs
 res://Scenes/node_3d.tscn
 res://Scripts/Farm/BuildingPlot.cs
 res://Scripts/Editor/SheetToAtlas.cs
@@ -25,5 +24,6 @@ res://Scripts/Player/HotbarSlot.cs
 res://Scripts/Player/InteractPrompt.cs
 res://Scripts/Player/InventorySlot.cs
 res://Scripts/Player/PlayerHotbar.cs
+res://Scripts/Player/PlayerInventory.cs
 res://Scripts/Player/PlayerMovement.cs
 res://Scripts/UI/DayCounter.cs

@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_6tffx")
 
 [node name="Inventory" type="Control" parent="."]
@@ -24,6 +24,7 @@ offset_top = -324.0
 offset_right = 400.0
 offset_bottom = 76.0
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="GridContainer" type="GridContainer" parent="Inventory"]
 layout_mode = 1
@@ -764,6 +765,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 script = ExtResource("3_k4l64")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hotbar"]

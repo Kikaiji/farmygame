@@ -100,6 +100,9 @@ gridSizeY = 70
 
 [node name="Buildings" type="Node3D" parent="BuildingGrid"]
 
+[node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
+mouse_filter = 1
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -107,6 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("9_4fuk2")
 
 [node name="Build Buttons" type="Control" parent="Control"]
@@ -118,6 +122,7 @@ anchor_bottom = 1.0
 offset_left = -128.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BuildButton" type="Button" parent="Control/Build Buttons"]
 layout_mode = 0
@@ -157,6 +162,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TestBuilding" type="Button" parent="Control/Building Select"]
 layout_mode = 1
@@ -192,9 +198,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 horizontal_alignment = 1
 script = ExtResource("11_cpodb")
-
-[node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
-mouse_filter = 1
 
 [connection signal="body_entered" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyEnter"]
 [connection signal="body_exited" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyExit"]
