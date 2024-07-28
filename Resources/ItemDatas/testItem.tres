@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_e0yg2")
-itemId = 0
-itemName = "testItem"
+itemId = "testItem"
+itemName = "Test Item"
 itemSprite = ExtResource("1_syjiv")
+maxStack = 1
+tags = Array[int]([])

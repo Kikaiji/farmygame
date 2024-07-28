@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://fujfu7qtvf3i"]
+
+[ext_resource type="Texture2D" uid="uid://den5k35xeaays" path="res://Art/Bought Assets/AtlasSprites/uibox.tres" id="1_fmln7"]
+
+[resource]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 30.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_fmln7")

@@ -1,8 +1,9 @@
-AtlasTexture
-Theme
-StyleBoxTexture
-StyleBoxFlat
+LabelSettings
 Resource
+StyleBoxTexture
+Theme
+AtlasTexture
+StyleBoxFlat
 StandardMaterial3D
 ImageTexture
 BoxShape3D

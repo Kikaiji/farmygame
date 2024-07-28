@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cj4ab5yogkyca"]
+
+[ext_resource type="Texture2D" uid="uid://den5k35xeaays" path="res://Art/Bought Assets/AtlasSprites/uibox.tres" id="1_pqx01"]
+
+[resource]
+texture = ExtResource("1_pqx01")
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+region_rect = Rect2(0, 0, 33, 33)
+modulate_color = Color(0.712129, 0.712129, 0.712129, 1)

@@ -13,10 +13,10 @@ material = SubResource("StandardMaterial3D_56p11")
 [sub_resource type="BoxShape3D" id="BoxShape3D_kw7e8"]
 
 [node name="TestBuilding" type="MeshInstance3D" node_paths=PackedStringArray("plantSprite")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.17744, -0.351583, 4.81077)
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0.17744, -0.351583, 4.81077)
 mesh = SubResource("BoxMesh_7o7ln")
 script = ExtResource("1_4slxy")
-plantSprite = NodePath("Sprite3D")
+plantSprite = NodePath("Plants/Sprite3D")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 script = ExtResource("2_ks375")
@@ -25,7 +25,49 @@ script = ExtResource("2_ks375")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00514412, 3.57628e-07, -0.0106168)
 shape = SubResource("BoxShape3D_kw7e8")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.818942, 0)
+[node name="Plants" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, -0.29174, 0.819, -0.379203)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, 0, 0.819, -0.379203)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, 0.29174, 0.819, -0.379203)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, -0.29174, 0.819, 0)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, 0, 0.819, 0)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, 0.29174, 0.819, 0)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, -0.29174, 0.819, 0.379203)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, 0, 0.819, 0.379203)
+texture_filter = 0
+texture = ExtResource("2_47m34")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Plants"]
+transform = Transform3D(0.58348, 0, 0, 0, 2, 0, 0, 0, 0.758406, 0.29174, 0.819, 0.379203)
 texture_filter = 0
 texture = ExtResource("2_47m34")

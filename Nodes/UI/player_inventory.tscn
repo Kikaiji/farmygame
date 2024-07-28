@@ -1,45 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://2qgxy3ocw7rt"]
+[gd_scene load_steps=7 format=3 uid="uid://2qgxy3ocw7rt"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerInventory.cs" id="1_6tffx"]
 [ext_resource type="Script" path="res://Scripts/Player/InventorySlot.cs" id="1_qhy7q"]
+[ext_resource type="Theme" uid="uid://62l6ixtms3yl" path="res://Art/UI/UITheme.tres" id="2_6aqhb"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerHotbar.cs" id="3_k4l64"]
+[ext_resource type="LabelSettings" uid="uid://h3bvbn4ger0x" path="res://Art/UI/Text.tres" id="4_ta5i2"]
 [ext_resource type="Script" path="res://Scripts/Player/HotbarSlot.cs" id="4_w08kb"]
 
 [node name="PlayerInventory" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_6tffx")
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -324.0
-offset_right = 400.0
-offset_bottom = 76.0
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 400.0
 
 [node name="GridContainer" type="GridContainer" parent="Inventory"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -10.0
-offset_bottom = -230.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -91.0
+offset_right = 258.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 9
 
 [node name="Slot" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot"]
@@ -56,10 +61,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot2" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot2"]
@@ -76,10 +99,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot3" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot3"]
@@ -96,10 +137,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot4" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot4"]
@@ -116,10 +175,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot5" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot5"]
@@ -136,10 +213,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot6" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot6"]
@@ -156,10 +251,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot6"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot7" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot7"]
@@ -176,10 +289,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot7"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot8" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot8"]
@@ -196,10 +327,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot8"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot9" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot9"]
@@ -216,10 +365,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot9"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot10" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot10"]
@@ -236,10 +403,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot10"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot11" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot11"]
@@ -256,10 +441,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot11"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot12" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot12"]
@@ -276,10 +479,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot12"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot13" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot13"]
@@ -296,10 +517,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot13"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot14" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot14"]
@@ -316,10 +555,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot14"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot15" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot15"]
@@ -336,10 +593,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot15"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot16" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot16"]
@@ -356,10 +631,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot16"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot17" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot17"]
@@ -376,10 +669,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot17"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot18" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot18"]
@@ -396,10 +707,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot18"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot19" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot19"]
@@ -416,10 +745,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot19"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot20" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot20"]
@@ -436,10 +783,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot20"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot21" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot21"]
@@ -456,10 +821,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot21"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot22" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot22"]
@@ -476,10 +859,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot22"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot23" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot23"]
@@ -496,10 +897,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot23"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot24" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot24"]
@@ -516,10 +935,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot24"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot25" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot25"]
@@ -536,10 +973,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot25"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot26" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot26"]
@@ -556,10 +1011,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot26"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot27" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot27"]
@@ -576,10 +1049,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot27"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot28" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot28"]
@@ -596,10 +1087,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot28"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot29" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot29"]
@@ -616,10 +1125,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot29"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot30" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot30"]
@@ -636,10 +1163,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot30"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot31" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot31"]
@@ -656,10 +1201,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot31"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot32" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot32"]
@@ -676,10 +1239,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot32"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot33" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot33"]
@@ -696,10 +1277,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot33"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot34" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot34"]
@@ -716,10 +1315,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot34"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot35" type="Button" parent="Inventory/GridContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot35"]
@@ -736,13 +1353,33 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot35"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Slot36" type="Button" parent="Inventory/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("1_qhy7q")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/GridContainer/Slot36"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -755,6 +1392,22 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Inventory/GridContainer/Slot36"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
 
 [node name="Hotbar" type="Control" parent="."]
 layout_mode = 1
@@ -780,9 +1433,11 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Hotbar Slot" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot"]
@@ -799,10 +1454,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot2" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot2"]
@@ -819,10 +1492,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot3" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot3"]
@@ -839,10 +1530,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot4" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot4"]
@@ -859,10 +1568,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot5" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot5"]
@@ -879,10 +1606,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot6" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot6"]
@@ -899,10 +1644,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot6"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot7" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot7"]
@@ -919,10 +1682,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot7"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot8" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot8"]
@@ -939,10 +1720,28 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot8"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
+
 [node name="Hotbar Slot9" type="Button" parent="Hotbar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_6aqhb")
 script = ExtResource("4_w08kb")
 
 [node name="TextureRect" type="TextureRect" parent="Hotbar/HBoxContainer/Hotbar Slot9"]
@@ -958,6 +1757,22 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Hotbar/HBoxContainer/Hotbar Slot9"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("4_ta5i2")
+horizontal_alignment = 2
 
 [connection signal="button_down" from="Inventory/GridContainer/Slot" to="." method="SelectSlot" binds= [0]]
 [connection signal="button_down" from="Inventory/GridContainer/Slot2" to="." method="SelectSlot" binds= [1]]

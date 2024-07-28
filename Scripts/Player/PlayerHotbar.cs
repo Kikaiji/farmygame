@@ -6,6 +6,8 @@ public partial class PlayerHotbar : Control
 	private PlayerInventory _inv;
 
 	private HotbarSlot[] hotbar = new HotbarSlot[9];
+
+	private int heldSlot;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,7 +17,14 @@ public partial class PlayerHotbar : Control
 
 	public override void _EnterTree()
 	{
-		_inv.onSlotSelected += Refresh;
+		//_inv.onSlotSelected += Refresh;
+		InventoryManager.onHeldItem += HeldItem;
+	}
+
+	private string HeldItem()
+	{
+		if (_inv.inventory[heldSlot].item == null) return null;
+		return _inv.inventory[heldSlot].item.itemId;
 	}
 
 	private void GetSetSlots()
@@ -37,7 +46,7 @@ public partial class PlayerHotbar : Control
 	{
 		for (int i = 0; i < hotbar.Length; i++)
 		{
-			hotbar[i].RefreshSlot();
+			hotbar[i].RefreshSlot(_inv.inventory[i]);
 		}
 	}
 }

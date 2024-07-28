@@ -12,7 +12,7 @@ config_version=5
 
 config/name="fucky around"
 run/main_scene="res://Scenes/node_3d.tscn"
-config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -27,6 +27,12 @@ project/assembly_name="fucky around"
 [filesystem]
 
 import/fbx/enabled=false
+
+[importer_defaults]
+
+texture={
+"process/fix_alpha_border": false
+}
 
 [input]
 

@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_ln03y")
-size = Vector2(1, 1)
+size = Vector2(2, 2)
 buildingName = "Farm Plot"
 buildingNode = ExtResource("1_gtadr")

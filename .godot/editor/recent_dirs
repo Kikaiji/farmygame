@@ -1,11 +1,12 @@
+res://Art/UI
+res://Resources/ItemDatas
+F:/Godot/fuckyaround/JsonData
+res://Art/Bought Assets/AtlasSprites
 res://Art/Sprites/AtlasSprites
-F:/Godot/Scripts/Editor
 res://Art/Sprites
 res://Nodes/UI/Styles
 res://Scripts/Player
 res://Nodes/UI
-res://Resources/ItemDatas
-F:/Godot/JsonData
 res://Resources/BuildingDatas
 res://Nodes/Farm
 res://Resources

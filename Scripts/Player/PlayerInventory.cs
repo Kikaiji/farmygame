@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class PlayerInventory : Control
 {
@@ -12,11 +13,14 @@ public partial class PlayerInventory : Control
 
 		for (int i = 0; i < children.Count; i++)
 		{
-			InventorySlots[i] = (InventorySlot) children[i];
+			InventorySlots[i] = (InventorySlot)children[i];
 			InventorySlots[i].id = i;
 		}
 
 		onSlotSelected += SwapFirst;
+
+		InventoryManager.onAddItem += AddItem;
+		InventoryManager.onRemoveItem += RemoveItemByType;
 	}
 
 	public delegate void SlotSelected(int slot);
@@ -33,12 +37,42 @@ public partial class PlayerInventory : Control
 	private int first, second;
 
 
-	public bool AddItem(InventoryItem item, int slot, int amount)
+	public int AddItem(string itemId, int amount)
 	{
-		if (slot > inventory.Length) return false;
+		if (GetFirstAvailableSlot() == -1 && CountItem(itemId) == 0)
+		{
+			GD.Print("Inventory Full");
+			return -1;
+		}
+
+		Dictionary<int, int> slots = LookForItem(itemId);
+		int remaining = amount;
+		int max = ItemDatabase.Instance.GetItem(itemId).maxStack;
 		
-		inventory[slot] = item;
-		return true;
+		foreach (var slot in slots)
+		{
+			if ((remaining = inventory[slot.Key].AddCount(remaining)) < 0)
+			{
+				RefreshInventory();
+				return -1;
+			}
+		}
+
+		while (remaining > 0)
+		{
+			int slot = 0;
+			if ((slot = GetFirstAvailableSlot()) == -1)
+			{
+				RefreshInventory();
+				GD.Print("No Room for remaining items.");
+				return remaining;
+			}
+			inventory[slot] = new InventoryItem(ItemDatabase.Instance.GetItem(itemId));
+			remaining = inventory[slot].AddCount(remaining);
+		}
+		RefreshInventory();
+		return -1;
+
 	}
 
 	public int GetFirstAvailableSlot()
@@ -69,26 +103,90 @@ public partial class PlayerInventory : Control
 
 	private void SwapSecond(int id)
 	{
-		SwapItem(first, id);
+		SwapItem(first, id); 
+		first = 0;
+		onSlotSelected += SwapFirst;
+		onSlotSelected -= SwapSecond;
 	}
 
-	public void RemoveItem(int slot)
+	public bool RemoveItemBySlot(int slot, int count = 1)
 	{
-		if (slot > inventory.Length) return;
-		inventory[slot] = null;
-	}
-
-	public bool LookForItem(ItemData item, int count)
-	{
-		int amount = 0;
-		for (int i = 0; i < inventory.Length; i++)
+		if (slot > inventory.Length || slot < 0)
 		{
-			if (inventory[i] != null && inventory[i].id == item.itemId) amount += inventory[i].count;
+			GD.PushWarning("Slot number " + slot + " is invalid.");
+			return false;
 		}
 
-		if (amount >= count) return true;
+		if (inventory[slot].Count < count)
+		{
+			GD.PushWarning("Amount to remove (" + count + ") is greater than which currently exists in the specified slot");
+			return false;
+		}
 		
-		return false;
+		if ((inventory[slot].RemoveCount(count)) >= 0) inventory[slot] = null;
+		RefreshInventory();
+		return true;
+	}
+
+	public bool RemoveItemByType(string itemId, int count = 1)
+	{
+		if (CountItem(itemId) < count)
+		{
+			GD.PushWarning("Number of item specified in inventory (" + count + ") is greater than which currently exists.");
+			return false;
+		}
+
+		Dictionary<int, int> itemCounts = LookForItem(itemId);
+
+		int remaining = count;
+		foreach (var slot in itemCounts)
+		{
+			if (slot.Value <= remaining)
+			{
+				remaining -= slot.Value;
+				RemoveItemBySlot(slot.Key, slot.Value);
+			}
+			else
+			{
+				RemoveItemBySlot(slot.Key, remaining);
+				break;
+			}
+		}
+
+		return true;
+	}
+	
+	public Dictionary<int, int> LookForItem(string itemId)
+	{
+		Dictionary<int, int> result = new Dictionary<int, int>();
+		for (int i = 0; i < inventory.Length; i++)
+		{
+			if (inventory[i] != null && inventory[i].item.itemId == itemId) result.Add(i, inventory[i].Count);
+		}
+
+		PrintDict(result);
+		return result;
+	}
+
+	private void PrintDict(Dictionary<int, int> dict)
+	{
+		GD.Print("Dictionary");
+		foreach (var VARIABLE in dict)
+		{
+			GD.Print("Slot " + VARIABLE.Key + " Count " + VARIABLE.Value);
+		}
+	}
+
+	public int CountItem(string itemID)
+	{
+		int amount = 0;
+
+		for (int i = 0; i < inventory.Length; i++)
+		{
+			if (inventory[i] != null && inventory[i].item.itemId == itemID) amount += inventory[i].Count;
+		}
+		
+		return amount;
 	}
 
 	public void SelectSlot(int id)
@@ -97,19 +195,24 @@ public partial class PlayerInventory : Control
 		
 		onSlotSelected?.Invoke(id);
 	}
-	
-	
+
+	public void RefreshInventory()
+	{
+		for (int i = 0; i < inventory.Length; i++)
+		{
+			InventorySlots[i].RefreshSlot(inventory[i]);
+		}
+	}
 
 
 }
 
 public class InventoryItem
 {
-	public int id;
-	public string itemName;
-	public CompressedTexture2D sprite;
-	public int count;
+	public ItemData item;
+	public int Count { get; private set; }
 
+	
 	public InventoryItem()
 	{
 		
@@ -117,8 +220,33 @@ public class InventoryItem
 
 	public InventoryItem(ItemData data)
 	{
-		id = data.itemId;
-		itemName = data.itemName;
-		sprite = (CompressedTexture2D) GD.Load("res://Art/Sprites/Plants/turnip test.png");
+		item = data;
+	}
+
+	public int AddCount(int add)
+	{
+		Count += add;
+
+		if (Count > item.maxStack)
+		{
+			int remaining = Count - item.maxStack;
+			Count -= remaining;
+			return remaining;
+		}
+
+		return -1;
+	}
+
+	public int RemoveCount(int minus)
+	{
+		Count -= minus;
+
+		if (Count <= 0)
+		{
+			int remaining = -Count;
+			return remaining;
+		}
+
+		return -1;
 	}
 }

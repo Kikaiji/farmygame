@@ -12,10 +12,15 @@ public class ItemDatabase
 		private set => _instance = value;
 	}
 	
-	public List<ItemData> ItemList { get; private set; }
+	public Dictionary<string, ItemData> ItemList { get; private set; }
 
 	public void Setup()
 	{
-		ItemList = ResourceFileLoader.Instance.LoadFolder<ItemData>("res://Resources/ItemDatas/");
+		ItemList = ResourceFileLoader.Instance.LoadFolderAsDict<ItemData>("res://Resources/ItemDatas/");
+	}
+
+	public ItemData GetItem(string itemId)
+	{
+		return ItemList[itemId];
 	}
 }
