@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dc0u78xh0qrjl"]
+[gd_scene load_steps=17 format=3 uid="uid://dc0u78xh0qrjl"]
 
 [ext_resource type="PackedScene" uid="uid://cw8ai5pl88u4f" path="res://Nodes/Player/player.tscn" id="1_2d40q"]
 [ext_resource type="Script" path="res://Scripts/Farm/Bed.cs" id="1_5752q"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/Farm/BuildingGrid.cs" id="6_aulel"]
 [ext_resource type="PackedScene" uid="uid://deknadnfffy5b" path="res://Nodes/Farm/new_test_plot.tscn" id="8_0e0lk"]
 [ext_resource type="Script" path="res://Scripts/Input/ButtonControls.cs" id="9_4fuk2"]
-[ext_resource type="Script" path="res://Scripts/UI/InvTest.cs" id="9_6vt2u"]
 [ext_resource type="PackedScene" uid="uid://2qgxy3ocw7rt" path="res://Nodes/UI/player_inventory.tscn" id="9_ilafq"]
 [ext_resource type="Script" path="res://Scripts/UI/DayCounter.cs" id="11_cpodb"]
 
@@ -101,6 +100,9 @@ gridSizeY = 70
 
 [node name="Buildings" type="Node3D" parent="BuildingGrid"]
 
+[node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
+mouse_filter = 1
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -108,7 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("9_4fuk2")
 
 [node name="Build Buttons" type="Control" parent="Control"]
@@ -120,28 +122,13 @@ anchor_bottom = 1.0
 offset_left = -128.0
 grow_horizontal = 0
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="BuildButton" type="Button" parent="Control/Build Buttons"]
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Control/Build Buttons/BuildButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Build"
 
 [node name="DestroyButton" type="Button" parent="Control/Build Buttons"]
 layout_mode = 1
@@ -155,21 +142,6 @@ offset_bottom = 264.0
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Build Buttons/DestroyButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Destroy"
-
 [node name="StopButton" type="Button" parent="Control/Build Buttons"]
 layout_mode = 1
 anchors_preset = 5
@@ -182,21 +154,6 @@ offset_bottom = 400.0
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Build Buttons/StopButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Stop"
-
 [node name="Building Select" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 11
@@ -205,7 +162,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="TestBuilding" type="Button" parent="Control/Building Select"]
 layout_mode = 1
@@ -217,21 +174,6 @@ offset_right = -132.0
 offset_bottom = 64.0
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Control/Building Select/TestBuilding"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Test"
 
 [node name="FarmPlot" type="Button" parent="Control/Building Select"]
 layout_mode = 1
@@ -245,21 +187,6 @@ offset_bottom = 132.0
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Building Select/FarmPlot"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Plot"
-
 [node name="Control" type="Control" parent="Control"]
 layout_mode = 1
 anchor_right = 0.1
@@ -272,60 +199,6 @@ offset_bottom = 23.0
 horizontal_alignment = 1
 script = ExtResource("11_cpodb")
 
-[node name="invtest" type="Control" parent="Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -86.0
-offset_right = 205.0
-offset_bottom = -6.0
-grow_vertical = 0
-script = ExtResource("9_6vt2u")
-
-[node name="itemName" type="TextEdit" parent="Control/invtest"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 40.0
-grow_horizontal = 2
-
-[node name="Count" type="TextEdit" parent="Control/invtest"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -39.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Button" type="Button" parent="Control/invtest"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Button2" type="Button" parent="Control/invtest"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_right = 40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
-mouse_filter = 2
-
 [connection signal="body_entered" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyEnter"]
 [connection signal="body_exited" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyExit"]
 [connection signal="button_down" from="Control/Build Buttons/BuildButton" to="Control" method="BuildButton"]
@@ -333,5 +206,3 @@ mouse_filter = 2
 [connection signal="button_down" from="Control/Build Buttons/StopButton" to="Control" method="StopBuildButton"]
 [connection signal="button_down" from="Control/Building Select/TestBuilding" to="Control" method="SelectBuilding" binds= [0]]
 [connection signal="button_down" from="Control/Building Select/FarmPlot" to="Control" method="SelectBuilding" binds= [1]]
-[connection signal="button_down" from="Control/invtest/Button" to="Control/invtest" method="OnItemTest"]
-[connection signal="button_down" from="Control/invtest/Button2" to="Control/invtest" method="OnRemoveTest"]

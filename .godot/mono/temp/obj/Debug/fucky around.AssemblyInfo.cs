@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fucky around")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb3fa85acc0aba9ecef44067d3d6b236c32baa3c")]
 [assembly: System.Reflection.AssemblyProductAttribute("fucky around")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fucky around")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -32,3 +32,21 @@ F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\refint\fucky around.dll
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.pdb
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.genruntimeconfig.cache
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\ref\fucky around.dll
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\bin\Debug\fucky around.deps.json
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\bin\Debug\fucky around.runtimeconfig.json
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\bin\Debug\fucky around.dll
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\bin\Debug\fucky around.pdb
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.csproj.AssemblyReference.cache
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.AssemblyInfoInputs.cache
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.AssemblyInfo.cs
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.csproj.CoreCompileInputs.cache
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.sourcelink.json
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.csproj.CopyComplete
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.dll
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\refint\fucky around.dll
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.pdb
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\fucky around.genruntimeconfig.cache
+C:\Users\olive\Documents\Godot\farmygame\.godot\mono\temp\obj\Debug\ref\fucky around.dll
