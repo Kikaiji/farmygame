@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2qgxy3ocw7rt"]
+[gd_scene load_steps=9 format=3 uid="uid://2qgxy3ocw7rt"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerInventory.cs" id="1_6tffx"]
 [ext_resource type="Script" path="res://Scripts/Player/InventorySlot.cs" id="1_qhy7q"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/Player/PlayerHotbar.cs" id="3_k4l64"]
 [ext_resource type="LabelSettings" uid="uid://h3bvbn4ger0x" path="res://Art/UI/Text.tres" id="4_ta5i2"]
 [ext_resource type="Script" path="res://Scripts/Player/HotbarSlot.cs" id="4_w08kb"]
+[ext_resource type="StyleBox" uid="uid://c1o5qtm87gaii" path="res://Art/UI/HeldBox.tres" id="6_ctusm"]
+[ext_resource type="StyleBox" uid="uid://fujfu7qtvf3i" path="res://Art/UI/Stylebox.tres" id="7_eirn3"]
 
 [node name="PlayerInventory" type="Control"]
 texture_filter = 1
@@ -1418,6 +1420,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("3_k4l64")
+heldTexture = ExtResource("6_ctusm")
+defTexture = ExtResource("7_eirn3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hotbar"]
 layout_mode = 1

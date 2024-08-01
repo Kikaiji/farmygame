@@ -91,8 +91,9 @@ public partial class PlayerHotbar : Control
 					break;
 			}
 
-			if(prev != -1) hotbar[prev].RemoveThemeStyleboxOverride("held");
-			hotbar[heldSlot].AddThemeStyleboxOverride("held", heldTexture);
+			GD.Print("Slot " + heldSlot);
+			if(prev != -1) hotbar[prev].RemoveThemeStyleboxOverride("normal");
+			hotbar[heldSlot].AddThemeStyleboxOverride("normal", heldTexture);
 		}
 	}
 }

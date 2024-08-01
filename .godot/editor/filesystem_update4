@@ -1,4 +1,4 @@
-res://Nodes/Farm/Buildings/farmPlot.tscn
+res://Nodes/Player/player.tscn
 res://Art/Bought Assets/AtlasSprites/uibox.tres
 res://Art/UI/Stylebox.tres
 res://Art/UI/Stylebox2.tres
@@ -8,6 +8,12 @@ res://Scripts/Farm/BuildingPlot.cs
 res://Resources/BuildingData.cs
 res://JsonData/JsonHandler.cs
 res://Scripts/Editor/SheetToAtlas.cs
+res://Nodes/Player/camera.tscn
+res://Nodes/Farm/building_plot.tscn
+res://Nodes/Farm/Buildings/test_building.tscn
+res://Nodes/Farm/Buildings/farmPlot.tscn
+res://Nodes/UI/player_inventory.tscn
+res://Scenes/node_3d.tscn
 res://Resources/ItemData.cs
 res://Scripts/Player/PlayerHotbar.cs
 res://Scripts/Farm/BuildingGrid.cs
@@ -19,16 +25,13 @@ res://Scripts/Player/InventorySlot.cs
 res://Scripts/UI/InvTest.cs
 res://Scripts/Player/InteractPrompt.cs
 res://Scripts/UI/DayCounter.cs
-res://Scripts/Data/DataManager.cs
+res://Scripts/Camera/CameraMovement.cs
 res://Scripts/Input/ButtonControls.cs
 res://Scripts/Player/HotbarSlot.cs
 res://Scripts/Input/BuildingInput.cs
-res://Scripts/Camera/CameraMovement.cs
-res://Scripts/Data/PlantData.cs
+res://Resources/PlantData.cs
+res://Scripts/Data/DataManager.cs
 res://Scripts/Player/PlayerInventory.cs
 res://Scripts/Player/PlayerMovement.cs
 res://Scripts/Farm/FarmPlot.cs
 res://Scripts/Farm/Bed.cs
-res://Resources/ItemDatas/onion.tres
-res://Resources/ItemDatas/carrot.tres
-res://Resources/ItemDatas/testItem.tres
