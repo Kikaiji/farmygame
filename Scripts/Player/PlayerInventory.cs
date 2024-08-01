@@ -20,7 +20,7 @@ public partial class PlayerInventory : Control
 		onSlotSelected += SwapFirst;
 
 		InventoryManager.onAddItem += AddItem;
-		InventoryManager.onRemoveItem += RemoveItemByType;
+		InventoryManager.onRemoveItem += TryRemoveItem;
 	}
 
 	public delegate void SlotSelected(int slot);
@@ -109,7 +109,19 @@ public partial class PlayerInventory : Control
 		onSlotSelected -= SwapSecond;
 	}
 
-	public bool RemoveItemBySlot(int slot, int count = 1)
+	public bool TryRemoveItem(string itemId, int count = 1, int slot = -1)
+	{
+		if (slot == -1)
+		{
+			return RemoveItemByType(itemId, count);
+		}
+		else
+		{
+			return RemoveItemBySlot(itemId, slot, count);
+		}
+	}
+
+	public bool RemoveItemBySlot(string itemId, int slot, int count = 1)
 	{
 		if (slot > inventory.Length || slot < 0)
 		{
@@ -120,6 +132,12 @@ public partial class PlayerInventory : Control
 		if (inventory[slot].Count < count)
 		{
 			GD.PushWarning("Amount to remove (" + count + ") is greater than which currently exists in the specified slot");
+			return false;
+		}
+
+		if (inventory[slot].item.itemId != itemId)
+		{
+			GD.PushWarning("Specified item is not in that slot");
 			return false;
 		}
 		
@@ -144,11 +162,11 @@ public partial class PlayerInventory : Control
 			if (slot.Value <= remaining)
 			{
 				remaining -= slot.Value;
-				RemoveItemBySlot(slot.Key, slot.Value);
+				RemoveItemBySlot(itemId, slot.Key, slot.Value);
 			}
 			else
 			{
-				RemoveItemBySlot(slot.Key, remaining);
+				RemoveItemBySlot(itemId, slot.Key, remaining);
 				break;
 			}
 		}
@@ -204,6 +222,10 @@ public partial class PlayerInventory : Control
 		}
 	}
 
+	private string GetItemInSlot(int slot)
+	{
+		return inventory[slot].item.itemId;
+	}
 
 }
 

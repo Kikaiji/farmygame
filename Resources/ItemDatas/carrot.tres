@@ -9,4 +9,4 @@ itemId = "carrot"
 itemName = "Carrot"
 itemSprite = ExtResource("1_dco8x")
 maxStack = 20
-tags = Array[int]([])
+tags = Array[int]([2])

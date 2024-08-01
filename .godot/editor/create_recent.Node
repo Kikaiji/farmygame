@@ -1,5 +1,5 @@
-Node3D
 Label
+Node3D
 Button
 TextEdit
 Control
@@ -12,4 +12,3 @@ MarginContainer
 GridContainer
 BoxContainer
 Container
-Sprite3D
