@@ -3,8 +3,6 @@ using System;
 
 public partial class FarmPlot : Building
 {
-	[Export] public PlantData plant;
-	[Export] public Sprite3D plantSprite;
 
 	public PlantSlot[] plants; 
 	private int dayCount;
@@ -12,12 +10,11 @@ public partial class FarmPlot : Building
 	// Called when the node enters the scene tree for the first time.
 	public override void Interact()
 	{
-		throw new NotImplementedException();
 		//Get Currently held item through event
 		ItemData holding = null;
 
-		if (InventoryManager.Instance.GetHeldItem() != null)
-			holding = ItemDatabase.Instance.GetItem(InventoryManager.Instance.GetHeldItem());
+		HotbarSlot slot = InventoryManager.Instance.GetHeldItem();
+		holding = ItemDatabase.Instance.GetItem(InventoryManager.Instance.GetInventoryItem(slot.referenceSlot.id));
 		
 		if (GetFirstAvailableSlot() == -1 || holding == null)
 		{
@@ -26,14 +23,17 @@ public partial class FarmPlot : Building
 			{
 				if (InventoryManager.Instance.TryAddItem(plants[grown].plant.produceId) == -1)
 				{
-					plants[grown].RemovePlant();
+					HarvestPlant(grown);
+					
 				}
 			}
+			return;
 		}
 
 		if (holding.tags.Contains(ItemTags.Seed))
 		{
-			//plant
+			var plant = PlantDatabase.Instance.GetPlantBySeed(holding.itemId);
+			if(plant != null) PlantSeed(GetFirstAvailableSlot(), plant, slot.referenceSlot.id);
 		}
 		
 		//Check tags of held item to determine what to do.
@@ -58,11 +58,11 @@ public partial class FarmPlot : Building
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (plant != null)
+		/*if (plant != null)
 		{
 			plantSprite.Texture = plant.plantSprite;
 		}
-		plant = JsonHandler.Instance.plantList[0];
+		plant = JsonHandler.Instance.plantList[0];*/
 	}
 
 	private int GetFirstAvailableSlot()
@@ -84,6 +84,20 @@ public partial class FarmPlot : Building
 
 		return -1;
 	}
+
+	private void PlantSeed(int slot, PlantData plant, int invSlot)
+	{
+		plants[slot].AddPlant(plant);
+		InventoryManager.Instance.TryRemoveItem(plant.seedId, 1, invSlot);
+	}
+
+	private void HarvestPlant(int slot)
+	{
+		if (InventoryManager.Instance.TryAddItem(plants[slot].plant.produceId, 1) == -1)
+		{
+			plants[slot].RemovePlant();
+		}
+	}
 }
 
 public class PlantSlot
@@ -104,9 +118,9 @@ public class PlantSlot
 	public void AddPlant(PlantData data)
 	{
 		plant = data;
-		spriteSlot.Texture = data.plantSprite;
 		dayCount = 0;
 		GameManager.onDayPassed += CountDay;
+		Refresh();
 	}
 
 	public void RemovePlant()
@@ -119,5 +133,11 @@ public class PlantSlot
 	public void CountDay()
 	{
 		dayCount++;
+		Refresh();
+	}
+
+	public void Refresh()
+	{
+		spriteSlot.Texture = plant.plantSprite;
 	}
 }

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1722157910
+::res://::1722513740
 global.json::JSON::-1::1695192008::0::1::::<><>::
 icon.svg::CompressedTexture2D::8595047673993087403::1694938045::1701756231::1::::<><>::
 README.md::TextFile::-1::1705378202::0::1::::<><>::
@@ -13,7 +13,8 @@ texturepacker_import_spritesheet.gd::GDScript::-1::1705378202::0::1::::<>EditorI
 Assets 2(Scale x1)-No-BG.png::CompressedTexture2D::1091666190531476172::1720939804::1720941099::1::::<><>::
 RPG_Item_Pack_Retro_Spritesheet.png::CompressedTexture2D::4422855520433166023::1720939857::1720939857::1::::<><>::
 tdrpg_interior.png::CompressedTexture2D::4612857509573232382::1720939836::1720939836::1::::<><>::
-::res://Art/Bought Assets/AtlasSprites/::1721983064
+::res://Art/Bought Assets/AtlasSprites/::1722513809
+hotbarSelect.tres::AtlasTexture::3447700906046527792::1722513809::0::1::::<><>::
 uibox.tres::AtlasTexture::7468695222204550114::1721983064::0::1::::<><>::uid://ps2t2tam6477::::res://Art/Bought Assets/Assets 2(Scale x1)-No-BG.png
 ::res://Art/Models/::1705367898
 bamboo.obj::Mesh::3906152109552682720::1703924898::1703924899::1::::<><>::
@@ -37,12 +38,13 @@ turnip test.png::CompressedTexture2D::3714855892330339078::1701756839::170367185
 dirtCenter.png::CompressedTexture2D::2080532353234607950::1704072412::1704072412::1::::<><>::
 grassCenter.png::CompressedTexture2D::3614258853287754469::1704072243::1704072248::1::::<><>::
 ::res://Art/UI/::1721983064
+HeldBox.tres::StyleBoxTexture::6628503691041026792::1722514047::0::1::::<><>::uid://den5k35xeaays::::res://Art/Bought Assets/AtlasSprites/uibox.tres
 Stylebox2.tres::StyleBoxTexture::5464411314210477076::1721983064::0::1::::<><>::uid://den5k35xeaays::::res://Art/Bought Assets/AtlasSprites/uibox.tres
 Stylebox.tres::StyleBoxTexture::392788255829713580::1721983064::0::1::::<><>::uid://den5k35xeaays::::res://Art/Bought Assets/AtlasSprites/uibox.tres
 Text.tres::LabelSettings::549222775176300301::1721983064::0::1::::<><>::
 UITheme.tres::Theme::2232316055267453211::1721983064::0::1::::<><>::uid://fujfu7qtvf3i::::res://Art/UI/Stylebox.tres<>uid://cj4ab5yogkyca::::res://Art/UI/Stylebox2.tres
-::res://JsonData/::1721983064
-JsonHandler.cs::CSharpScript::-1::1721983064::0::1::::<><>::
+::res://JsonData/::1722236300
+JsonHandler.cs::CSharpScript::-1::1722236300::0::1::::<><>::
 Plants.json::JSON::-1::1704168323::0::1::::<><>::
 ::res://LitJson/::1720842665
 IJsonWrapper.cs::CSharpScript::-1::1701743929::0::1::::<><>::
@@ -65,8 +67,8 @@ occupied.tres::StandardMaterial3D::5325446147152704731::1703673053::0::1::::<><>
 ::res://Nodes/Farm/::1721810247
 building_plot.tscn::PackedScene::4281826176435787650::1721810247::0::1::::<><>::
 new_test_plot.tscn::PackedScene::7461450701964586421::1704512615::0::1::::<><>::uid://brq1kypeno5wb::::res://Art/Sprites/Temp/grassCenter.png<>res://Scripts/Farm/BuildingPlot.cs
-::res://Nodes/Farm/Buildings/::1721983155
-farmPlot.tscn::PackedScene::1957747075677638346::1721983155::0::1::::<><>::res://Scripts/Farm/FarmPlot.cs<>uid://bs6resw4anmve::::res://Art/Sprites/Plants/turnip test.png<>res://Scripts/Input/BuildingInput.cs
+::res://Nodes/Farm/Buildings/::1722236464
+farmPlot.tscn::PackedScene::1957747075677638346::1722236464::0::1::::<><>::res://Scripts/Farm/FarmPlot.cs<>uid://bs6resw4anmve::::res://Art/Sprites/Plants/turnip test.png<>res://Scripts/Input/BuildingInput.cs
 test_building.tscn::PackedScene::4136602929777210446::1721810247::0::1::::<><>::res://Scripts/Farm/Building.cs<>res://Scripts/Input/BuildingInput.cs
 ::res://Nodes/Player/::1721810247
 camera.tscn::PackedScene::4932034070089355978::1721810247::0::1::::<><>::res://Scripts/Camera/CameraMovement.cs
@@ -76,53 +78,58 @@ player_inventory.tscn::PackedScene::1928535501962840165::1722152098::0::1::::<><
 StyleBox.tres::StyleBoxTexture::8171252884760994607::1704605989::0::1::::<><>::uid://bs6resw4anmve::::res://Art/Sprites/Plants/turnip test.png
 ::res://Nodes/UI/Styles/::1704633111
 EmptyStyleBox.tres::StyleBoxTexture::3102119770066186035::1704629127::0::1::::<><>::
-::res://Resources/::1721983167
-BuildingData.cs::CSharpScript::-1::1721983064::0::1::::<>Resource<>::
+::res://Resources/::1722236300
+BuildingData.cs::CSharpScript::-1::1722236300::0::1::::<>Resource<>::
 ItemData.cs::CSharpScript::-1::1721983167::0::1::::<>Resource<>::
+PlantData.cs::CSharpScript::-1::1722147840::0::1::::<>Resource<>::
 ResourceFileLoader.cs::CSharpScript::-1::1721802761::0::1::::<><>::
 ::res://Resources/BuildingDatas/::1721812253
 BuildingData.tres::Resource::3325179051197910439::1704512788::0::1::::<><>::res://Resources/BuildingData.cs<>uid://by62iminhwy6q::::res://Nodes/Farm/Buildings/test_building.tscn
 FarmPlot.tres::Resource::952625731178726055::1721812253::0::1::::<><>::uid://25l2qnwncpbm::::res://Nodes/Farm/Buildings/farmPlot.tscn<>res://Resources/BuildingData.cs
-::res://Resources/ItemDatas/::1721983155
-carrot.tres::Resource::5863546501330131913::1721983155::0::1::::<><>::uid://bekyrt76grfc0::::res://Art/Sprites/AtlasSprites/textures10.tres<>res://Resources/ItemData.cs
-onion.tres::Resource::2435995712887391648::1721983155::0::1::::<><>::uid://b05fgssulebon::::res://Art/Sprites/AtlasSprites/textures20.tres<>res://Resources/ItemData.cs
-testItem.tres::Resource::3787965807136595756::1721983155::0::1::::<><>::res://Resources/ItemData.cs<>uid://bs6resw4anmve::::res://Art/Sprites/Plants/turnip test.png
+::res://Resources/ItemDatas/::1722236386
+carrot.tres::Resource::5863546501330131913::1722236386::0::1::::<><>::uid://bekyrt76grfc0::::res://Art/Sprites/AtlasSprites/textures10.tres<>res://Resources/ItemData.cs
+onion.tres::Resource::2435995712887391648::1722236386::0::1::::<><>::uid://b05fgssulebon::::res://Art/Sprites/AtlasSprites/textures20.tres<>res://Resources/ItemData.cs
+testItem.tres::Resource::3787965807136595756::1722236386::0::1::::<><>::res://Resources/ItemData.cs<>uid://bs6resw4anmve::::res://Art/Sprites/Plants/turnip test.png
+turnip.tres::Resource::46024067314416929::1722236386::0::1::::<><>::uid://bn1bvc7mmn5b3::::res://Art/Sprites/AtlasSprites/textures00.tres<>res://Resources/ItemData.cs
+turnipSeed.tres::Resource::2430924356059269689::1722236386::0::1::::<><>::uid://cwv61eic50e00::::res://Art/Sprites/AtlasSprites/textures01.tres<>res://Resources/ItemData.cs
+::res://Resources/PlantDatas/::1722236446
+turnipPlant.tres::Resource::6553840323632042080::1722236446::0::1::::<><>::uid://bs6resw4anmve::::res://Art/Sprites/Plants/turnip test.png<>res://Resources/PlantData.cs
 ::res://Scenes/::1722152098
 node_3d.tscn::PackedScene::7352522436620309809::1722152098::0::1::::<><>::uid://cw8ai5pl88u4f::::res://Nodes/Player/player.tscn<>res://Scripts/Farm/Bed.cs<>uid://ccjd466lt1ohe::::res://Nodes/Player/camera.tscn<>res://Scripts/Data/DataManager.cs<>res://Scripts/Farm/BuildingGrid.cs<>uid://deknadnfffy5b::::res://Nodes/Farm/new_test_plot.tscn<>res://Scripts/Input/ButtonControls.cs<>uid://2qgxy3ocw7rt::::res://Nodes/UI/player_inventory.tscn<>res://Scripts/UI/DayCounter.cs
 ::res://Scripts/::1705368847
 ::res://Scripts/Camera/::1703671474
 CameraMovement.cs::CSharpScript::-1::1703671474::0::1::::<>Node3D<>::
-::res://Scripts/Data/::1722147840
+::res://Scripts/Data/::1722232205
 DataManager.cs::CSharpScript::-1::1701755234::0::1::::<>Node<>::
-PlantData.cs::CSharpScript::-1::1722147840::0::1::::<>Resource<>::
-::res://Scripts/Editor/::1721983064
-SheetToAtlas.cs::CSharpScript::-1::1721983064::0::1::::<>EditorScript<>::
-::res://Scripts/Farm/::1722148269
+::res://Scripts/Editor/::1722236300
+SheetToAtlas.cs::CSharpScript::-1::1722236300::0::1::::<>EditorScript<>::
+::res://Scripts/Farm/::1722239301
 Bed.cs::CSharpScript::-1::1721803027::0::1::::<>Area3D<>::
 Building.cs::CSharpScript::-1::1721983056::0::1::::<>MeshInstance3D<>::
 BuildingGrid.cs::CSharpScript::-1::1704166754::0::1::::<>Node3D<>::
-BuildingPlot.cs::CSharpScript::-1::1721983064::0::1::::<>Area3D<>::
+BuildingPlot.cs::CSharpScript::-1::1722236300::0::1::::<>Area3D<>::
 BuildManager.cs::CSharpScript::-1::1704103492::0::1::::<><>::
-FarmPlot.cs::CSharpScript::-1::1722148269::0::1::::<>MeshInstance3D<>::
+FarmPlot.cs::CSharpScript::-1::1722239301::0::1::::<>MeshInstance3D<>::
 ::res://Scripts/Farm/Buildings/::1703667871
-::res://Scripts/Game/::1722148189
+::res://Scripts/Game/::1722239017
 GameManager.cs::CSharpScript::-1::1703993508::0::1::::<><>::
-InventoryManager.cs::CSharpScript::-1::1722148189::0::1::::<><>::
-ItemDatabase.cs::CSharpScript::-1::1721634694::0::1::::<><>::
+InventoryManager.cs::CSharpScript::-1::1722238863::0::1::::<>Node<>::
+ItemDatabase.cs::CSharpScript::-1::1722239017::0::1::::<><>::
+PlantDatabase.cs::CSharpScript::-1::1722232489::0::1::::<><>::
 ::res://Scripts/Input/::1704103112
 BuildingInput.cs::CSharpScript::-1::1703923920::0::1::::<>StaticBody3D<>::
 ButtonControls.cs::CSharpScript::-1::1704103112::0::1::::<>Control<>::
 MouseInput.cs::CSharpScript::-1::1703651689::0::1::::<>Camera3D<>::
 PlotInput.cs::CSharpScript::-1::1703923930::0::1::::<>StaticBody3D<>::
-::res://Scripts/Player/::1722085796
-HotbarSlot.cs::CSharpScript::-1::1721805291::0::1::::<>Button<>::
+::res://Scripts/Player/::1722514008
+HotbarSlot.cs::CSharpScript::-1::1722514008::0::1::::<>Button<>::
 InteractPrompt.cs::CSharpScript::-1::1703991306::0::1::::<>Label3D<>::
 InventorySlot.cs::CSharpScript::-1::1721802314::0::1::::<>Button<>::
-PlayerHotbar.cs::CSharpScript::-1::1722085796::0::1::::<>Control<>::
-PlayerInventory.cs::CSharpScript::-1::1721803719::0::1::::<>Control<>::
+PlayerHotbar.cs::CSharpScript::-1::1722513957::0::1::::<>Control<>::
+PlayerInventory.cs::CSharpScript::-1::1722238790::0::1::::<>Control<>::
 PlayerMovement.cs::CSharpScript::-1::1703991237::0::1::::<>CharacterBody3D<>::
 ::res://Scripts/SpriteLibrary/::1702892995
 SpriteLibrary.cs::CSharpScript::-1::1702892995::0::1::::<><>::
 ::res://Scripts/UI/::1721809584
 DayCounter.cs::CSharpScript::-1::1703993381::0::1::::<>Label<>::
-InvTest.cs::CSharpScript::-1::1721809584::0::1::::<><>::
+InvTest.cs::CSharpScript::-1::1721809584::0::1::::<>Node<>::

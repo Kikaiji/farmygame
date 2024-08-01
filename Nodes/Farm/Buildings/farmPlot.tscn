@@ -12,11 +12,10 @@ material = SubResource("StandardMaterial3D_56p11")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kw7e8"]
 
-[node name="TestBuilding" type="MeshInstance3D" node_paths=PackedStringArray("plantSprite")]
+[node name="TestBuilding" type="MeshInstance3D"]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0.17744, -0.351583, 4.81077)
 mesh = SubResource("BoxMesh_7o7ln")
 script = ExtResource("1_4slxy")
-plantSprite = NodePath("Plants/Sprite3D")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 script = ExtResource("2_ks375")

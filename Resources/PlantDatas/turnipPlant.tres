@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0my17io2oui7"]
+
+[ext_resource type="Texture2D" uid="uid://bs6resw4anmve" path="res://Art/Sprites/Plants/turnip test.png" id="1_yliyn"]
+[ext_resource type="Script" path="res://Resources/PlantData.cs" id="2_w2opp"]
+
+[resource]
+script = ExtResource("2_w2opp")
+growTime = 5
+plantName = "Turnip"
+plantSprite = ExtResource("1_yliyn")
+seedId = "turnipSeed"
+produceId = "turnip"

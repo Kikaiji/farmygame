@@ -1,8 +1,8 @@
-LabelSettings
+AtlasTexture
 Resource
+LabelSettings
 StyleBoxTexture
 Theme
-AtlasTexture
 StyleBoxFlat
 StandardMaterial3D
 ImageTexture

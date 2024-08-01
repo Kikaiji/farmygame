@@ -21,6 +21,8 @@ public class ItemDatabase
 
 	public ItemData GetItem(string itemId)
 	{
-		return ItemList[itemId];
+		ItemData result;
+		if (ItemList.TryGetValue(itemId, out result)) return result;
+		return null;
 	}
 }

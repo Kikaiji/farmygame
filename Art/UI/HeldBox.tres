@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c1o5qtm87gaii"]
+
+[ext_resource type="Texture2D" uid="uid://bpedeorwsotgi" path="res://Art/Bought Assets/AtlasSprites/hotbarSelect.tres" id="1_p76rl"]
+
+[resource]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 30.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_p76rl")

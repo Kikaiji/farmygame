@@ -101,7 +101,6 @@ gridSizeY = 70
 [node name="Buildings" type="Node3D" parent="BuildingGrid"]
 
 [node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
-mouse_filter = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
