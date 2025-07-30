@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://deknadnfffy5b"]
 
 [ext_resource type="Texture2D" uid="uid://brq1kypeno5wb" path="res://Art/Sprites/Temp/grassCenter.png" id="1_p6ris"]
-[ext_resource type="Script" path="res://Scripts/Farm/BuildingPlot.cs" id="1_s3cub"]
+[ext_resource type="Script" uid="uid://b3u0raja57mjy" path="res://Scripts/Farm/BuildingPlot.cs" id="1_s3cub"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbq0w"]
 size = Vector3(2, 0.1, 2)

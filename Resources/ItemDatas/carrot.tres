@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://cpsl0v4fltis4"]
 
 [ext_resource type="Texture2D" uid="uid://bekyrt76grfc0" path="res://Art/Sprites/AtlasSprites/textures10.tres" id="1_dco8x"]
-[ext_resource type="Script" path="res://Resources/ItemData.cs" id="1_ydbgn"]
+[ext_resource type="Script" uid="uid://vbb7xwjvt1vl" path="res://Resources/ItemData.cs" id="1_ydbgn"]
 
 [resource]
 script = ExtResource("1_ydbgn")

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/Y3PSPnc3Z8=",
+  "dgSpecHash": "wXnPvvY3qlRLBYq76vJR3KLdeQSemAuwjTW5YOzCmIE874kjh4t6R0jxEdsqrvyFjAp+v8h3l62j4aBGuuREoA==",
   "success": true,
-  "projectFilePath": "F:\\Godot\\fuckyaround\\fucky around.csproj",
+  "projectFilePath": "C:\\Users\\olive\\Documents\\Godot\\farmygame\\fucky around.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Oliver\\.nuget\\packages\\godot.sourcegenerators\\4.3.0\\godot.sourcegenerators.4.3.0.nupkg.sha512",
-    "C:\\Users\\Oliver\\.nuget\\packages\\godotsharp\\4.3.0\\godotsharp.4.3.0.nupkg.sha512",
-    "C:\\Users\\Oliver\\.nuget\\packages\\godotsharpeditor\\4.3.0\\godotsharpeditor.4.3.0.nupkg.sha512"
+    "C:\\Users\\olive\\.nuget\\packages\\godot.sourcegenerators\\4.4.1\\godot.sourcegenerators.4.4.1.nupkg.sha512",
+    "C:\\Users\\olive\\.nuget\\packages\\godotsharp\\4.4.1\\godotsharp.4.4.1.nupkg.sha512",
+    "C:\\Users\\olive\\.nuget\\packages\\godotsharpeditor\\4.4.1\\godotsharpeditor.4.4.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://2qgxy3ocw7rt"]
 
-[ext_resource type="Script" path="res://Scripts/Player/Inventory.cs" id="1_6tffx"]
+[ext_resource type="Script" uid="uid://p0tv4dhr8yqp" path="res://Scripts/Player/Inventory.cs" id="1_6tffx"]
 [ext_resource type="PackedScene" uid="uid://mo82xgvlhtqs" path="res://Nodes/UI/slot.tscn" id="2_5g228"]
 [ext_resource type="Theme" uid="uid://62l6ixtms3yl" path="res://Art/UI/UITheme.tres" id="2_6aqhb"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerHotbar.cs" id="3_k4l64"]
+[ext_resource type="Script" uid="uid://dteq5cfi821ti" path="res://Scripts/Player/PlayerHotbar.cs" id="3_k4l64"]
 [ext_resource type="LabelSettings" uid="uid://h3bvbn4ger0x" path="res://Art/UI/Text.tres" id="4_ta5i2"]
-[ext_resource type="Script" path="res://Scripts/Player/HotbarSlot.cs" id="4_w08kb"]
+[ext_resource type="Script" uid="uid://btjq2emfma8cg" path="res://Scripts/Player/HotbarSlot.cs" id="4_w08kb"]
 [ext_resource type="StyleBox" uid="uid://c1o5qtm87gaii" path="res://Art/UI/HeldBox.tres" id="6_ctusm"]
 [ext_resource type="StyleBox" uid="uid://fujfu7qtvf3i" path="res://Art/UI/Stylebox.tres" id="7_eirn3"]
 

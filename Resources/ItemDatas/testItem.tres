@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bt76ijnf8cda7"]
 
-[ext_resource type="Script" path="res://Resources/ItemData.cs" id="1_e0yg2"]
+[ext_resource type="Script" uid="uid://vbb7xwjvt1vl" path="res://Resources/ItemData.cs" id="1_e0yg2"]
 [ext_resource type="Texture2D" uid="uid://bs6resw4anmve" path="res://Art/Sprites/Plants/turnip test.png" id="1_syjiv"]
 
 [resource]

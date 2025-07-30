@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccjd466lt1ohe"]
 
-[ext_resource type="Script" path="res://Scripts/Camera/CameraMovement.cs" id="1_muvst"]
+[ext_resource type="Script" uid="uid://c2gq2fy7dksbn" path="res://Scripts/Camera/CameraMovement.cs" id="1_muvst"]
 
 [node name="CameraPivot" type="Node3D"]
 script = ExtResource("1_muvst")

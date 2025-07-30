@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c122udm5h1ohx"]
 
-[ext_resource type="Script" path="res://Scripts/Game/GroundItem.cs" id="1_3yb5j"]
+[ext_resource type="Script" uid="uid://bt6uuy8segecd" path="res://Scripts/Game/GroundItem.cs" id="1_3yb5j"]
 [ext_resource type="Texture2D" uid="uid://c5si42dod6o18" path="res://Art/Sprites/AtlasSprites/textures02.tres" id="1_jcpid"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_272rt"]

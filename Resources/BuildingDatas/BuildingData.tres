@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bnm0hin8mnat0"]
 
-[ext_resource type="Script" path="res://Resources/BuildingData.cs" id="1_7rnj1"]
+[ext_resource type="Script" uid="uid://di3w0rp7oi0vd" path="res://Resources/BuildingData.cs" id="1_7rnj1"]
 [ext_resource type="PackedScene" uid="uid://by62iminhwy6q" path="res://Nodes/Farm/Buildings/test_building.tscn" id="1_hcb7g"]
 
 [resource]

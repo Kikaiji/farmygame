@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://by62iminhwy6q"]
 
-[ext_resource type="Script" path="res://Scripts/Farm/Building.cs" id="1_mjo61"]
-[ext_resource type="Script" path="res://Scripts/Input/BuildingInput.cs" id="2_4iyl3"]
+[ext_resource type="Script" uid="uid://b3kwah6gw3j60" path="res://Scripts/Farm/Building.cs" id="1_mjo61"]
+[ext_resource type="Script" uid="uid://p2wq0g4ymtix" path="res://Scripts/Input/BuildingInput.cs" id="2_4iyl3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56p11"]
 albedo_color = Color(0.301961, 0.117647, 0.0431373, 1)

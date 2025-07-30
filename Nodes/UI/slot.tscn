@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://mo82xgvlhtqs"]
 
 [ext_resource type="Theme" uid="uid://62l6ixtms3yl" path="res://Art/UI/UITheme.tres" id="1_qpkvc"]
-[ext_resource type="Script" path="res://Scripts/Player/InventorySlot.cs" id="2_rur75"]
+[ext_resource type="Script" uid="uid://b3qflc66wj7mc" path="res://Scripts/Player/InventorySlot.cs" id="2_rur75"]
 [ext_resource type="LabelSettings" uid="uid://h3bvbn4ger0x" path="res://Art/UI/Text.tres" id="3_xda0c"]
 
 [node name="Slot" type="Button"]

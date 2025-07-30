@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://25l2qnwncpbm"]
 
-[ext_resource type="Script" path="res://Scripts/Farm/FarmPlot.cs" id="1_4slxy"]
+[ext_resource type="Script" uid="uid://dyrlkj7d8vqhj" path="res://Scripts/Farm/FarmPlot.cs" id="1_4slxy"]
 [ext_resource type="Texture2D" uid="uid://bs6resw4anmve" path="res://Art/Sprites/Plants/turnip test.png" id="2_47m34"]
-[ext_resource type="Script" path="res://Scripts/Input/BuildingInput.cs" id="2_ks375"]
+[ext_resource type="Script" uid="uid://p2wq0g4ymtix" path="res://Scripts/Input/BuildingInput.cs" id="2_ks375"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56p11"]
 albedo_color = Color(0.301961, 0.117647, 0.0431373, 1)

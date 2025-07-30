@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://ntpuvijwl50f"]
 
 [ext_resource type="PackedScene" uid="uid://25l2qnwncpbm" path="res://Nodes/Farm/Buildings/farmPlot.tscn" id="1_gtadr"]
-[ext_resource type="Script" path="res://Resources/BuildingData.cs" id="1_ln03y"]
+[ext_resource type="Script" uid="uid://di3w0rp7oi0vd" path="res://Resources/BuildingData.cs" id="1_ln03y"]
 
 [resource]
 script = ExtResource("1_ln03y")

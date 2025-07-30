@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bs6resw4anmve" path="res://Art/Sprites/Plants/turnip test.png" id="1_yliyn"]
 [ext_resource type="Texture2D" uid="uid://cwv61eic50e00" path="res://Art/Sprites/AtlasSprites/textures01.tres" id="2_owxqo"]
-[ext_resource type="Script" path="res://Resources/PlantData.cs" id="2_w2opp"]
+[ext_resource type="Script" uid="uid://tbrovog0ecul" path="res://Resources/PlantData.cs" id="2_w2opp"]
 
 [resource]
 script = ExtResource("2_w2opp")
