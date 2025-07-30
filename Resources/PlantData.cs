@@ -1,7 +1,9 @@
 using Godot;
 using System;
 using System.Data;
+using Godot.Collections;
 using LitJson;
+using Array = Godot.Collections.Array;
 
 public partial class PlantData : Resource, ISavable
 {
@@ -10,6 +12,7 @@ public partial class PlantData : Resource, ISavable
 	[Export] public Texture2D plantSprite;
 	[Export] public string seedId;
 	[Export] public string produceId;
+	[Export] public Array<Texture2D> plantSprites;
 	
 	public JsonData ObjectData { get; set; }
 	
@@ -29,14 +32,16 @@ public partial class PlantData : Resource, ISavable
 		plantSprite = null;
 		seedId = null;
 		produceId = null;
+		plantSprites = null;
 	}
 
-	public PlantData(int GrowTime, string PlantName, Texture2D PlantSprite, string SeedId, string ProduceId)
+	public PlantData(int GrowTime, string PlantName, Texture2D PlantSprite, string SeedId, string ProduceId, Array<Texture2D> PlantSprites)
 	{
 		growTime = GrowTime;
 		plantName = PlantName;
 		plantSprite = PlantSprite;
 		seedId = SeedId;
 		produceId = ProduceId;
+		plantSprites = PlantSprites;
 	}
 }

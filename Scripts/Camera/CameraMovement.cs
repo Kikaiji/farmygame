@@ -31,7 +31,7 @@ public partial class CameraMovement : Node3D
 	public override void _Ready()
 	{
 		//_currentCamera = GetChild(0).GetNode<Camera3D>("Camera3D");
-		rotationTween = GetTree().CreateTween();
+		//rotationTween = GetTree().CreateTween();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dc0u78xh0qrjl"]
+[gd_scene load_steps=27 format=3 uid="uid://dc0u78xh0qrjl"]
 
 [ext_resource type="PackedScene" uid="uid://cw8ai5pl88u4f" path="res://Nodes/Player/player.tscn" id="1_2d40q"]
 [ext_resource type="Script" path="res://Scripts/Farm/Bed.cs" id="1_5752q"]
@@ -9,7 +9,16 @@
 [ext_resource type="Script" path="res://Scripts/Input/ButtonControls.cs" id="9_4fuk2"]
 [ext_resource type="Script" path="res://Scripts/UI/InvTest.cs" id="9_6vt2u"]
 [ext_resource type="PackedScene" uid="uid://2qgxy3ocw7rt" path="res://Nodes/UI/player_inventory.tscn" id="9_ilafq"]
+[ext_resource type="PackedScene" uid="uid://c122udm5h1ohx" path="res://Nodes/Player/groundItem.tscn" id="11_afaev"]
 [ext_resource type="Script" path="res://Scripts/UI/DayCounter.cs" id="11_cpodb"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerInventory.cs" id="11_t5kxp"]
+[ext_resource type="Resource" uid="uid://cpsl0v4fltis4" path="res://Resources/ItemDatas/carrot.tres" id="12_iv56i"]
+[ext_resource type="Script" path="res://Scripts/Game/GroundItemRequest.cs" id="13_mnx6g"]
+[ext_resource type="Script" path="res://Scripts/Test/ItemSpawnTest.cs" id="14_p5kuc"]
+[ext_resource type="Resource" uid="uid://bayaq1qbsxipk" path="res://Resources/ItemDatas/onion.tres" id="15_iky7t"]
+[ext_resource type="PackedScene" uid="uid://mmtepsmj5fq0" path="res://Nodes/UI/cursor_slot.tscn" id="17_l4wxk"]
+[ext_resource type="Script" path="res://Scripts/UI/ContainerInventory.cs" id="18_ne6e8"]
+[ext_resource type="PackedScene" uid="uid://mo82xgvlhtqs" path="res://Nodes/UI/slot.tscn" id="19_e4fmx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2yus8"]
 
@@ -75,7 +84,6 @@ shape = SubResource("BoxShape3D_rmlw0")
 
 [node name="Character" parent="." node_paths=PackedStringArray("cameraPivot") instance=ExtResource("1_2d40q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354149, 1.92652, -3.76402)
-collision_layer = 2
 speed = 600
 cameraPivot = NodePath("../CameraPivot")
 
@@ -325,6 +333,53 @@ grow_horizontal = 0
 
 [node name="PlayerInventory" parent="." instance=ExtResource("9_ilafq")]
 mouse_filter = 2
+script = ExtResource("11_t5kxp")
+
+[node name="GroundItem" parent="." instance=ExtResource("11_afaev")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.55403, 4.02776)
+CurrentItem = ExtResource("12_iv56i")
+count = 1
+
+[node name="ItemRequest" type="Node3D" parent="."]
+script = ExtResource("13_mnx6g")
+groundItem = ExtResource("11_afaev")
+
+[node name="ItemSpawnTest" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.646, -2.12747, 0)
+script = ExtResource("14_p5kuc")
+testItem = ExtResource("15_iky7t")
+testCount = 1
+
+[node name="CursorSlot" parent="." instance=ExtResource("17_l4wxk")]
+
+[node name="ContainerInventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_ne6e8")
+rows = 3
+columns = 3
+invSlot = ExtResource("19_e4fmx")
+
+[node name="Inventory" type="Control" parent="ContainerInventory"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -160.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="ContainerInventory/Inventory"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyEnter"]
 [connection signal="body_exited" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyExit"]

@@ -32,5 +32,3 @@ public partial class Building : MeshInstance3D
 	{
 	}
 }
-
-

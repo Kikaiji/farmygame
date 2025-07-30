@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0my17io2oui7"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c0my17io2oui7"]
 
 [ext_resource type="Texture2D" uid="uid://bs6resw4anmve" path="res://Art/Sprites/Plants/turnip test.png" id="1_yliyn"]
+[ext_resource type="Texture2D" uid="uid://cwv61eic50e00" path="res://Art/Sprites/AtlasSprites/textures01.tres" id="2_owxqo"]
 [ext_resource type="Script" path="res://Resources/PlantData.cs" id="2_w2opp"]
 
 [resource]
@@ -10,3 +11,4 @@ plantName = "Turnip"
 plantSprite = ExtResource("1_yliyn")
 seedId = "turnipSeed"
 produceId = "turnip"
+plantSprites = Array[Texture2D]([ExtResource("2_owxqo"), ExtResource("2_owxqo"), ExtResource("2_owxqo"), ExtResource("2_owxqo"), ExtResource("1_yliyn")])

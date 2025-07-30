@@ -26,9 +26,10 @@ F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.GeneratedMSBuildEdi
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.AssemblyInfoInputs.cache
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.AssemblyInfo.cs
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.csproj.CoreCompileInputs.cache
-F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.csproj.CopyComplete
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.dll
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\refint\fucky around.dll
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.pdb
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.genruntimeconfig.cache
 F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\ref\fucky around.dll
+F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky around.sourcelink.json
+F:\Godot\fuckyaround\.godot\mono\temp\obj\Debug\fucky ar.FF527368.Up2Date

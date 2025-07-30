@@ -37,4 +37,3 @@ public partial class Bed : Area3D
 		other.prompt.SetPrompt("");
 	}
 }
-

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://mo82xgvlhtqs"]
+
+[ext_resource type="Theme" uid="uid://62l6ixtms3yl" path="res://Art/UI/UITheme.tres" id="1_qpkvc"]
+[ext_resource type="Script" path="res://Scripts/Player/InventorySlot.cs" id="2_rur75"]
+[ext_resource type="LabelSettings" uid="uid://h3bvbn4ger0x" path="res://Art/UI/Text.tres" id="3_xda0c"]
+
+[node name="Slot" type="Button"]
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_qpkvc")
+script = ExtResource("2_rur75")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = ExtResource("3_xda0c")
+horizontal_alignment = 2

@@ -24,42 +24,146 @@ public partial class InventoryManager : Node
 	public delegate string GetItem(int id);
 	public static event GetItem onGetItem;
 	
-	public delegate HotbarSlot HeldItem();
+	public delegate int HeldItem();
 	public static event HeldItem onHeldItem;
-
-	public int TryAddItem(string itemId, int count = 1)
-	{
-		if (onAddItem != null)
-		{
-			onInventoryModified?.Invoke();
-			return onAddItem.Invoke(itemId, count);
-		}
+	
+	public delegate void ToggleInv();
+	public static event ToggleInv onToggleInv;
+	
+	public delegate void ItemSelect();
+	public static event ItemSelect onItemSelected;
+	
+	public delegate void ItemDrop(GroundItem item);
+	public static event ItemDrop onItemDropped;
+	
+	public Inventory playerInventory;
+	public ItemContainer otherInventory;
+	public ContainerInventory containerInventory;
+	
+	private Inventory selectOrigin;
+	private int selectSlot;
+	
+	
+	public int MoveItem(Inventory origin, int id){
 		return -2;
 	}
 	
+	public void SwapItem(Inventory firstInv, int firstSlot, Inventory secondInv, int secondSlot){
+		
+		var first = firstInv.inventory[firstSlot];
+		var second = secondInv.inventory[secondSlot];
+		
+		firstInv.ReplaceItem(second, firstSlot);
+		secondInv.ReplaceItem(first, secondSlot);
+	}
+/*
+	public int TryAddItem(string itemId, int count = 1)
+	{
+		if (otherInventory != null)
+		{
+			var result = otherInventory.AddItem(itemId, count);
+			//var result = onAddItem.Invoke(itemId, count);
+			onInventoryModified?.Invoke();
+			return result;
+		}
+		return -2;
+	}
+*/
+	
+	public int TryAddItemPlayer(string itemId, int count = 1){
+		if (playerInventory != null)
+		{
+			var result = playerInventory.AddItem(itemId, count);
+			//var result = onAddItem.Invoke(itemId, count);
+			onInventoryModified?.Invoke();
+			return result;
+		}
+		return -2;
+	}
+	/*
 	public bool TryRemoveItem(string itemId, int count = 1, int slot = -1)
 	{
-		if (onRemoveItem != null)
+		if (otherInventory != null)
 		{
+			var result = otherInventory.TryRemoveItem(itemId, count, slot);
+			//var result = onRemoveItem.Invoke(itemId, count, slot);
 			onInventoryModified?.Invoke();
-			return onRemoveItem.Invoke(itemId, count, slot);
+			return result;
+		}
+		return false;
+	}
+	*/
+	public bool TryRemoveItemPlayer(string itemId, int count = 1, int slot = -1)
+	{
+		if (playerInventory != null)
+		{
+			var result = playerInventory.TryRemoveItem(itemId, count, slot);
+			//var result = onRemoveItem.Invoke(itemId, count, slot);
+			onInventoryModified?.Invoke();
+			return result;
 		}
 		return false;
 	}
 
+/*
 	public string GetInventoryItem(int id)
 	{
-		if (onGetItem != null)
+		if (otherInventory != null)
 		{
-			return onGetItem.Invoke(id);
+			return otherInventory.GetItemInSlot(id);
+			//return onGetItem.Invoke(id);
+		}
+		return null;
+	}
+*/
+	
+	public string GetInventoryItemPlayer(int id)
+	{
+		if (playerInventory != null)
+		{
+			return playerInventory.GetItemInSlot(id);
+			//return onGetItem.Invoke(id);
 		}
 		return null;
 	}
 
-	public HotbarSlot GetHeldItem()
+	public int GetHeldItem()
 	{
 		if(onHeldItem != null) return onHeldItem.Invoke();
 
-		return null;
+		return -1;
+	}
+	
+	public void FullRefresh()
+	{
+		onInventoryModified?.Invoke();
+	}
+	
+	public void ToggleInventory()
+	{
+		onToggleInv?.Invoke();
+	}
+	
+	public ContainerInventory OpenContainer(ItemContainer container)
+	{
+		otherInventory = container;
+		return containerInventory;
+	}
+	
+	public void CloseContainer(){
+		otherInventory = null;
+		containerInventory.ClearInventory();
+	}
+	
+	public InventoryItem SelectItem(InventoryItem item)
+	{
+		return CursorSlot.Instance.TakeItem(item);
+	}
+	
+	public void DropItem(InventoryItem item){
+		var newGroundItem = GroundItemRequest.Instance.NewGroundItem(item.item, item.Count);
+		if(newGroundItem != null && onItemDropped != null){
+			onItemDropped.Invoke(newGroundItem as GroundItem);
+		}
 	}
 }

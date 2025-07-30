@@ -29,6 +29,8 @@ public partial class BuildingGrid : Node3D
 		BuildManager.onPlotSelected += Highlight;
 		BuildManager.onPlotDeselected += UnHighlight;
 		BuildManager.onModeChanged += HandleModeChange;
+		BuildManager.onPlotClicked += HandlePlotClick;
+		BuildManager.onBuildingClicked += HandleBuildingClick;
 	}
 
 	public override void _ExitTree()
@@ -36,6 +38,8 @@ public partial class BuildingGrid : Node3D
 		BuildManager.onPlotSelected -= Highlight;
 		BuildManager.onPlotDeselected -= UnHighlight;
 		BuildManager.onModeChanged -= HandleModeChange;
+		BuildManager.onPlotClicked -= HandlePlotClick;
+		BuildManager.onBuildingClicked += HandleBuildingClick;
 	}
 
 	public override void _Process(double delta)
@@ -173,35 +177,23 @@ public partial class BuildingGrid : Node3D
 			p?.RemoveHighlight();
 		}
 	}
-
-	public override void _Input(InputEvent @event)
+	
+	private void HandlePlotClick(BuildingPlot plot)
 	{
-		if (@event is InputEventMouseButton eventMouseButton &&
-		    eventMouseButton.Pressed & eventMouseButton.ButtonIndex == MouseButton.Left)
+		if (BuildManager.Instance.currentMode == BuildMode.Build && 
+			BuildManager.Instance.selected != null && 
+			BuildManager.Instance._currentBuilding != null)
 		{
-			switch (BuildManager.Instance.currentMode)
-			{
-				case BuildMode.Build:
-					if (BuildManager.Instance.selected != null && BuildManager.Instance._currentBuilding != null)
-					{
-						CreateBuilding(BuildManager.Instance._currentBuilding,
-							BuildManager.Instance.selected);
-					}
-					
-					break;
-				case BuildMode.Destroy:
-					if (BuildManager.Instance.selectedBuilding != null)
-					{
-						DestroyBuilding(BuildManager.Instance.selectedBuilding);
-					}
-					break;
-				default:
-					if (BuildManager.Instance.selectedBuilding != null)
-					{
-						BuildManager.Instance.selectedBuilding.Interact();
-					}
-					break;
-			}
+			CreateBuilding(BuildManager.Instance._currentBuilding,
+				BuildManager.Instance.selected);
+		}
+	}
+
+	private void HandleBuildingClick(Building b)
+	{
+		if (BuildManager.Instance.currentMode == BuildMode.Destroy)
+		{
+			DestroyBuilding(b);
 		}
 	}
 

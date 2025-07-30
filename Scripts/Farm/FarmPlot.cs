@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class FarmPlot : Building
 {
@@ -10,22 +11,24 @@ public partial class FarmPlot : Building
 	// Called when the node enters the scene tree for the first time.
 	public override void Interact()
 	{
+		GD.Print("interact");
 		//Get Currently held item through event
 		ItemData holding = null;
 
-		HotbarSlot slot = InventoryManager.Instance.GetHeldItem();
-		holding = ItemDatabase.Instance.GetItem(InventoryManager.Instance.GetInventoryItem(slot.referenceSlot.id));
+		int slot = InventoryManager.Instance.GetHeldItem();
+		if (slot != -1)
+		{
+			var item = InventoryManager.Instance.GetInventoryItemPlayer(slot);
+			if(item != null) holding = ItemDatabase.Instance.GetItem(item);
+			GD.Print(slot);
+		}
 		
-		if (GetFirstAvailableSlot() == -1 || holding == null)
+		if (GetFirstAvailableSlot() == -1 || holding == null || !holding.tags.Contains(ItemTags.Seed))
 		{
 			int grown = -1;
 			if ((grown = GetFirstGrown()) >= 0)
 			{
-				if (InventoryManager.Instance.TryAddItem(plants[grown].plant.produceId) == -1)
-				{
-					HarvestPlant(grown);
-					
-				}
+				HarvestPlant(grown);
 			}
 			return;
 		}
@@ -33,7 +36,11 @@ public partial class FarmPlot : Building
 		if (holding.tags.Contains(ItemTags.Seed))
 		{
 			var plant = PlantDatabase.Instance.GetPlantBySeed(holding.itemId);
-			if(plant != null) PlantSeed(GetFirstAvailableSlot(), plant, slot.referenceSlot.id);
+			if (plant != null)
+			{
+				PlantSeed(GetFirstAvailableSlot(), plant, slot);
+				GD.Print("Planted " + plant);
+			}
 		}
 		
 		//Check tags of held item to determine what to do.
@@ -52,6 +59,7 @@ public partial class FarmPlot : Building
 		for (int i = 0; i < nodes.Count; i++)
 		{
 			plants[i] = new PlantSlot(nodes[i]);
+			plants[i].Refresh();
 		}
 	}
 	
@@ -79,7 +87,7 @@ public partial class FarmPlot : Building
 	{
 		for (int i = 0; i < plants.Length; i++)
 		{
-			if (plants[i].dayCount >= plants[i].plant.growTime) return i;
+			if (plants[i].plant != null && plants[i].dayCount >= plants[i].plant.growTime) return i;
 		}
 
 		return -1;
@@ -88,14 +96,15 @@ public partial class FarmPlot : Building
 	private void PlantSeed(int slot, PlantData plant, int invSlot)
 	{
 		plants[slot].AddPlant(plant);
-		InventoryManager.Instance.TryRemoveItem(plant.seedId, 1, invSlot);
+		InventoryManager.Instance.TryRemoveItemPlayer(plant.seedId, 1, invSlot);
 	}
 
 	private void HarvestPlant(int slot)
 	{
-		if (InventoryManager.Instance.TryAddItem(plants[slot].plant.produceId, 1) == -1)
+		if (InventoryManager.Instance.TryAddItemPlayer(plants[slot].plant.produceId, 1) == -1)
 		{
 			plants[slot].RemovePlant();
+			GD.Print("Harvested " + slot);
 		}
 	}
 }
@@ -138,6 +147,18 @@ public class PlantSlot
 
 	public void Refresh()
 	{
-		spriteSlot.Texture = plant.plantSprite;
+		if(plant != null)
+		{
+			spriteSlot.Texture = GetNextSprite();
+			return;
+		}
+		spriteSlot.Texture = null;
+	}
+
+	private Texture2D GetNextSprite()
+	{
+		if (dayCount > plant.growTime) return plant.plantSprites.Last();
+
+		return plant.plantSprites[dayCount];
 	}
 }

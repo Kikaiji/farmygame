@@ -48,7 +48,6 @@ public partial class BuildingPlot : Area3D
 		//SetSurfaceOverrideMaterial(0, (Material)GD.Load("res://Materials/Test/Base.tres"));
 	}
 	
-
 	public override void _MouseEnter()
 	{
 		//mesh.SetSurfaceOverrideMaterial(0, highlight);
@@ -61,6 +60,13 @@ public partial class BuildingPlot : Area3D
 		BuildManager.Instance.Deselect(this);
 	}
 
-	// Called when the node enters the scene tree for the first time.
-
+	public override void _InputEvent(Camera3D camera, InputEvent @event, Vector3 position, Vector3 normal, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton eventMouseButton &&
+		    eventMouseButton.Pressed & eventMouseButton.ButtonIndex == MouseButton.Left)
+		{
+			BuildManager.Instance.ClickPlot(this);
+		}
+		base._InputEvent(camera, @event, position, normal, shapeIdx);
+	}
 }

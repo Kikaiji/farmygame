@@ -20,12 +20,11 @@ public partial class InvTest : Node
 
 	public void OnItemTest()
 	{
-		InventoryManager.Instance.TryAddItem(ItemId.Text, Count.Text.ToInt());
+		if(ItemId.Text != "" && Count.Text != "") InventoryManager.Instance.TryAddItemPlayer(ItemId.Text, Count.Text.ToInt());
 	}
 
 	public void OnRemoveTest()
 	{
-		InventoryManager.Instance.TryRemoveItem(ItemId.Text, Count.Text.ToInt());
+		if(ItemId.Text != "" && Count.Text != "") InventoryManager.Instance.TryRemoveItemPlayer(ItemId.Text, Count.Text.ToInt());
 	}
 }
-

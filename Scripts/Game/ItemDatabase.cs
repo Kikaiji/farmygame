@@ -16,6 +16,9 @@ public class ItemDatabase
 
 	public void Setup()
 	{
+		if(ItemList == null){
+			
+		}
 		ItemList = ResourceFileLoader.Instance.LoadFolderAsDict<ItemData>("res://Resources/ItemDatas/");
 	}
 

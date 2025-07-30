@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public partial class PlayerHotbar : Control
 {
-	private PlayerInventory _inv;
+	private Inventory _inv;
 
 	private HotbarSlot[] hotbar = new HotbarSlot[9];
 	
@@ -15,7 +15,7 @@ public partial class PlayerHotbar : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_inv = (PlayerInventory)GetParent();
+		_inv = (Inventory)GetParent();
 		GetSetSlots();
 	}
 
@@ -25,10 +25,9 @@ public partial class PlayerHotbar : Control
 		InventoryManager.onHeldItem += HeldItem;
 	}
 
-	private HotbarSlot HeldItem()
+	private int HeldItem()
 	{
-		if (_inv.inventory[heldSlot].item == null) return null;
-		return hotbar[heldSlot];
+		return heldSlot;
 	}
 
 	private void GetSetSlots()
@@ -91,9 +90,9 @@ public partial class PlayerHotbar : Control
 					break;
 			}
 
-			GD.Print("Slot " + heldSlot);
+			//GD.Print("Slot " + heldSlot);
 			if(prev != -1) hotbar[prev].RemoveThemeStyleboxOverride("normal");
-			hotbar[heldSlot].AddThemeStyleboxOverride("normal", heldTexture);
+			if(heldSlot >= 0) hotbar[heldSlot].AddThemeStyleboxOverride("normal", heldTexture);
 		}
 	}
 }

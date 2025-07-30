@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c122udm5h1ohx"]
+
+[ext_resource type="Script" path="res://Scripts/Game/GroundItem.cs" id="1_3yb5j"]
+[ext_resource type="Texture2D" uid="uid://c5si42dod6o18" path="res://Art/Sprites/AtlasSprites/textures02.tres" id="1_jcpid"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_272rt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jocht"]
+
+[node name="GroundItem" type="Node3D" node_paths=PackedStringArray("ItemSprite")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_3yb5j")
+ItemSprite = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_jcpid")
+
+[node name="Magnet Trigger" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Magnet Trigger"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_272rt")
+
+[node name="Collection Trigger" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collection Trigger"]
+shape = SubResource("SphereShape3D_jocht")
+
+[connection signal="body_entered" from="Magnet Trigger" to="." method="MagnetEnter"]
+[connection signal="body_exited" from="Magnet Trigger" to="." method="MagnetExit"]
+[connection signal="body_entered" from="Collection Trigger" to="." method="CollectionTriggered"]

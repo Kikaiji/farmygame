@@ -1,13 +1,15 @@
+res://Art/Sprites
+res://Nodes/UI
+res://Art/Sprites/AtlasSprites
+res://Art/Sprites/Player
+C:/Program Files/Blender Foundation/Blender 2.93
 res://Art/Bought Assets/AtlasSprites
 res://Resources/PlantDatas
 res://Art/UI
 res://Resources/ItemDatas
 F:/Godot/fuckyaround/JsonData
-res://Art/Sprites/AtlasSprites
-res://Art/Sprites
 res://Nodes/UI/Styles
 res://Scripts/Player
-res://Nodes/UI
 res://Resources/BuildingDatas
 res://Nodes/Farm
 res://Resources
@@ -18,5 +20,3 @@ res://Nodes
 res://Art/Sprites/Plants
 res://
 res://Nodes/Player
-res://Scripts/Camera
-res://Scripts

@@ -20,6 +20,12 @@ public partial class BuildManager
     public delegate void ModeChanged();
     public static event ModeChanged onModeChanged;
 
+    public delegate void PlotClicked(BuildingPlot plot);
+    public static event PlotClicked onPlotClicked;
+    
+    public delegate void BuildingClicked(Building b);
+    public static event BuildingClicked onBuildingClicked;
+
     public List<BuildingData> buildingList { get; private set; }
     //public List<PackedScene> buildingNodeList { get; private set; }
 
@@ -36,6 +42,7 @@ public partial class BuildManager
         //buildingNodeList = ResourceFileLoader.Instance.LoadFolder<PackedScene>("res://Nodes/Farm/Buildings/");
         _buildingNode = (PackedScene)GD.Load("res://Nodes/Farm/Buildings/test_building.tscn");
         _currentBuilding = buildingList[0];
+        _currentBuildingNode = _currentBuilding.buildingNode;
         GD.Print(_buildingNode);
     }
     public void Select(BuildingPlot b)
@@ -89,8 +96,16 @@ public partial class BuildManager
         
         GD.Print(currentMode);
     }
-    
-    
+
+    public void ClickPlot(BuildingPlot plot)
+    {
+        onPlotClicked?.Invoke(plot);
+    }
+
+    public void ClickBuilding(Building b)
+    {
+        onBuildingClicked?.Invoke(b);
+    }
 }
 
 public enum BuildMode

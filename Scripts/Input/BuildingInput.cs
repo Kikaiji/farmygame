@@ -26,4 +26,21 @@ public partial class BuildingInput : StaticBody3D
 		mesh.SetSurfaceOverrideMaterial(0, baseMat);
 		GD.Print("DelectedBuilding");
 	}
+	
+	public override void _InputEvent(Camera3D camera, InputEvent @event, Vector3 position, Vector3 normal, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton eventMouseButton &&
+		    eventMouseButton.Pressed & eventMouseButton.ButtonIndex == MouseButton.Left)
+		{
+			if (BuildManager.Instance.currentMode == BuildMode.None)
+			{
+				var b = (Building)GetParent();
+				b.Interact();
+				return;
+			}
+			
+			BuildManager.Instance.ClickBuilding((Building)GetParent());
+		}
+		base._InputEvent(camera, @event, position, normal, shapeIdx);
+	}
 }
