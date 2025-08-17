@@ -16,14 +16,20 @@ public partial class ItemContainer : Area3D
 	private void InteractBehaviour()
 	{
 		GD.Print("Interacted with " + Name);
-		containerInventory = InventoryManager.Instance.OpenContainer(this);
-		containerInventory.rows = rows;
-		containerInventory.columns = columns;
-		containerInventory.container = this;
-		containerInventory.Setup();
-		
-		containerInventory.inventory = containerItems;
-		open = true;
+		if(!open)
+		{
+			containerInventory = InventoryManager.Instance.OpenContainer(this);
+			containerInventory.rows = rows;
+			containerInventory.columns = columns;
+			containerInventory.container = this;
+			containerInventory.Setup();
+			
+			containerInventory.inventory = containerItems;
+			containerInventory.RefreshInventory();
+			open = true;
+		} else{
+			CloseInventory();
+		}
 	}
 
 	public void OnBodyEnter(Node3D body)
@@ -38,6 +44,10 @@ public partial class ItemContainer : Area3D
 	{
 		if (body is not PlayerMovement other) return;
 
+		if(open) 
+		{
+			CloseInventory();
+		}
 		other.onPlayerInteract -= InteractBehaviour;
 		other.prompt.SetPrompt("");
 	}
@@ -79,5 +89,10 @@ public partial class ItemContainer : Area3D
 	public InventoryItem SelectItem(InventoryItem item)
 	{
 		return CursorSlot.Instance.TakeItem(item);
+	}
+	
+	private void CloseInventory(){
+		containerItems = InventoryManager.Instance.CloseContainer();
+		open = false;
 	}
 }

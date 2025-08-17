@@ -150,9 +150,9 @@ public partial class InventoryManager : Node
 		return containerInventory;
 	}
 	
-	public void CloseContainer(){
+	public InventoryItem[] CloseContainer(){
 		otherInventory = null;
-		containerInventory.ClearInventory();
+		return containerInventory.ClearInventory();
 	}
 	
 	public InventoryItem SelectItem(InventoryItem item)
@@ -161,7 +161,7 @@ public partial class InventoryManager : Node
 	}
 	
 	public void DropItem(InventoryItem item){
-		var newGroundItem = GroundItemRequest.Instance.NewGroundItem(item.item, item.Count);
+		var newGroundItem = GroundItemRequest.Instance.NewGroundItem(item.item, item.Count, 5);
 		if(newGroundItem != null && onItemDropped != null){
 			onItemDropped.Invoke(newGroundItem as GroundItem);
 		}

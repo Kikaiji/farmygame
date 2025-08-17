@@ -25,7 +25,18 @@ public partial class ContainerInventory : Inventory
 		RefreshInventory();
 	}
 	
-	public void ClearInventory(){
+	public InventoryItem[] ClearInventory(){
+		var oldInventory = inventory;
+		
+		inventory = new InventoryItem[36];
+		for(int i = 0; i < (rows * columns); i++){
+			InventorySlots[i].QueueFree();
+		}
+		InventorySlots = new InventorySlot[36];
+		
+		
+		
+		return oldInventory;
 		//Destroy old inventory stuff.
 	}
 }

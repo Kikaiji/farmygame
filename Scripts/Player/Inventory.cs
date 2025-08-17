@@ -256,7 +256,7 @@ public partial class Inventory : Control
 	{
 		for (int i = 0; i < inventory.Length; i++)
 		{
-			InventorySlots[i].RefreshSlot(inventory[i]);
+			InventorySlots[i]?.RefreshSlot(inventory[i]);
 		}
 	}
 

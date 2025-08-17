@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dc0u78xh0qrjl"]
+[gd_scene load_steps=34 format=3 uid="uid://dc0u78xh0qrjl"]
 
 [ext_resource type="PackedScene" uid="uid://cw8ai5pl88u4f" path="res://Nodes/Player/player.tscn" id="1_2d40q"]
+[ext_resource type="Texture2D" uid="uid://clj0evhqi2uw6" path="res://Art/Bought Assets/kenney_prototype_textures/dark/texture_13.png" id="1_4wftv"]
 [ext_resource type="Script" uid="uid://bb37lehsabiy7" path="res://Scripts/Farm/Bed.cs" id="1_5752q"]
 [ext_resource type="PackedScene" uid="uid://ccjd466lt1ohe" path="res://Nodes/Player/camera.tscn" id="2_4ymwj"]
+[ext_resource type="Script" uid="uid://cx45hnq7udfti" path="res://Scripts/Game/ItemContainer.cs" id="2_nivdu"]
 [ext_resource type="Script" uid="uid://cns4do7opqsqh" path="res://Scripts/Data/DataManager.cs" id="4_0t0j3"]
 [ext_resource type="Script" uid="uid://b8832yx2g202i" path="res://Scripts/Farm/BuildingGrid.cs" id="6_aulel"]
 [ext_resource type="PackedScene" uid="uid://deknadnfffy5b" path="res://Nodes/Farm/new_test_plot.tscn" id="8_0e0lk"]
@@ -19,6 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://mmtepsmj5fq0" path="res://Nodes/UI/cursor_slot.tscn" id="17_l4wxk"]
 [ext_resource type="Script" uid="uid://d3pf3d7fvrmhx" path="res://Scripts/UI/ContainerInventory.cs" id="18_ne6e8"]
 [ext_resource type="PackedScene" uid="uid://mo82xgvlhtqs" path="res://Nodes/UI/slot.tscn" id="19_e4fmx"]
+[ext_resource type="MeshLibrary" uid="uid://ce4wtyinvycq" path="res://Resources/MeshLibrary/TestMeshLibrary.tres" id="22_lsvv6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsvv6"]
+albedo_texture = ExtResource("1_4wftv")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2yus8"]
 
@@ -37,13 +44,20 @@ material = SubResource("StandardMaterial3D_yp805")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmlw0"]
 size = Vector3(1.46894, 2.16483, 1.60671)
 
+[sub_resource type="BoxMesh" id="BoxMesh_4wftv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lsvv6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_24o0o"]
+
 [node name="Scene" type="Node3D"]
 
 [node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644913, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(150, 0, 0, 0, 2, 0, 0, 0, 150, 0, -5.21984, 0)
+transform = Transform3D(150, 0, 0, 0, 2, 0, 0, 0, 150, -1.22195, -5.58144, -1.03037)
+material_override = SubResource("StandardMaterial3D_lsvv6")
 mesh = SubResource("BoxMesh_2yus8")
 skeleton = NodePath("StaticBody3D")
 
@@ -52,6 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48117e-05, -0.133374, 0.000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_n433u")
+debug_color = Color(1, 1, 1, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(4.04501, 0, 0, 0, 1, 0, 0, 0, 3.95556, 0, -0.743865, -3.49368)
@@ -80,6 +95,23 @@ script = ExtResource("1_5752q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bed/BedArea"]
 shape = SubResource("BoxShape3D_rmlw0")
+
+[node name="Container" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86078, -1.5601, 12.6733)
+mesh = SubResource("BoxMesh_4wftv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Container"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Container/StaticBody3D"]
+shape = SubResource("BoxShape3D_lsvv6")
+
+[node name="Area3D" type="Area3D" parent="Environment/Container"]
+collision_mask = 2
+script = ExtResource("2_nivdu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Container/Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_24o0o")
 
 [node name="Character" parent="." node_paths=PackedStringArray("cameraPivot") instance=ExtResource("1_2d40q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354149, 1.92652, -3.76402)
@@ -358,6 +390,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("18_ne6e8")
 rows = 3
 columns = 3
@@ -376,12 +409,24 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="GridContainer" type="GridContainer" parent="ContainerInventory/Inventory"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("22_lsvv6")
 
 [connection signal="body_entered" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyEnter"]
 [connection signal="body_exited" from="Environment/Bed/BedArea" to="Environment/Bed/BedArea" method="OnBodyExit"]
+[connection signal="body_entered" from="Environment/Container/Area3D" to="Environment/Container/Area3D" method="OnBodyEnter"]
+[connection signal="body_exited" from="Environment/Container/Area3D" to="Environment/Container/Area3D" method="OnBodyExit"]
 [connection signal="button_down" from="Control/Build Buttons/BuildButton" to="Control" method="BuildButton"]
 [connection signal="button_down" from="Control/Build Buttons/DestroyButton" to="Control" method="DestroyButton"]
 [connection signal="button_down" from="Control/Build Buttons/StopButton" to="Control" method="StopBuildButton"]

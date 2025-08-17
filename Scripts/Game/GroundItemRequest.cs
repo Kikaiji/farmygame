@@ -18,10 +18,10 @@ public partial class GroundItemRequest : Node3D
 	}
 
 	
-	public GroundItem NewGroundItem(ItemData item, int count){
+	public GroundItem NewGroundItem(ItemData item, int count, double delay = 0){
 		
 		var NewItem = groundItem.Instantiate() as GroundItem;
-		NewItem.Setup(item, count);
+		NewItem.Setup(item, count, delay);
 		
 		return NewItem;
 	}

@@ -14,6 +14,7 @@ public partial class GroundItem : Node3D
 	private bool _homing;
 	
 	private float speed = 0.08f;
+	private double homingDelay = 0;
 	
 	private Node3D player;
 	
@@ -26,15 +27,19 @@ public partial class GroundItem : Node3D
 		InventoryManager.onInventoryModified += InventoryWatch;
 	}
 	
-	public void Setup(ItemData item, int itemCount){
+	public void Setup(ItemData item, int itemCount, double delay){
 		CurrentItem = item;
 		count = itemCount;
 		ItemSprite.Texture = CurrentItem.itemSprite;
+		homingDelay = delay;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if(homingDelay > 0){
+			homingDelay -= delta;
+		}
 		if(_homing){
 			LookAt(player.GetGlobalPosition(), Vector3.Up);
 			SetGlobalPosition(GetGlobalPosition() + Basis.Z * -speed);
@@ -51,7 +56,7 @@ public partial class GroundItem : Node3D
 	}
 	
 	public void MagnetEnter(Node3D collider){
-		if(collider is not PlayerMovement) return;
+		if(collider is not PlayerMovement && homingDelay <= 0) return;
 		player = collider;
 		GD.Print("Enter");
 		
@@ -60,7 +65,7 @@ public partial class GroundItem : Node3D
 	}
 	
 	public void MagnetExit(Node3D collider){
-		if(collider is not PlayerMovement) return;
+		if(collider is not PlayerMovement && homingDelay <= 0) return;
 		GD.Print("Exit");
 		
 		_detected = false;
@@ -68,7 +73,7 @@ public partial class GroundItem : Node3D
 	}
 	
 	public void CollectionTriggered(Node3D collider){
-		if(collider is not PlayerMovement) return;
+		if(collider is not PlayerMovement && homingDelay <= 0) return;
 		
 		int result = InventoryManager.Instance.TryAddItemPlayer(CurrentItem.itemId, count);
 		

@@ -1,3 +1,5 @@
+res://Resources/MeshLibrary
+res://Materials/Test
 res://Art/Sprites
 res://Nodes/UI
 res://Art/Sprites/AtlasSprites
@@ -18,5 +20,3 @@ res://Materials
 res://Scripts/Farm
 res://Nodes
 res://Art/Sprites/Plants
-res://
-res://Nodes/Player

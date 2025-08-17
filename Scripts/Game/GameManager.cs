@@ -13,6 +13,12 @@ public class GameManager
 
 	public delegate void DayPassed();
 	public static event DayPassed onDayPassed;
+	
+	public delegate void TickPassed();
+	public static event TickPassed onTick;
+	
+	public delegate void TimePassed();
+	public static event TimePassed onTimePass;
 
 	public int CurrentDay { get; private set; } = 0;
 
@@ -20,5 +26,15 @@ public class GameManager
 	{
 		onDayPassed?.Invoke();
 		CurrentDay++;
+	}
+	
+	public void Tick()
+	{
+		onTick?.Invoke();
+	}
+	
+	public void PassTime()
+	{
+		onTimePass?.Invoke();
 	}
 }
